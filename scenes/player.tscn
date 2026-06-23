@@ -48,7 +48,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xrivr"]
-size = Vector2(252.75, 808)
+size = Vector2(596.5924, 2480.4624)
 
 [sub_resource type="Curve2D" id="Curve2D_g2els"]
 _data = {
@@ -57,7 +57,7 @@ _data = {
 point_count = 12
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_13qdw"]
-size = Vector2(54, 142)
+size = Vector2(125.00031, 428.12415)
 
 [sub_resource type="Animation" id="Animation_qfm1y"]
 resource_name = "idle"
@@ -80,11 +80,9 @@ wave_enemy_position = NodePath("Path2D/PathFollow2D/Marker2D")
 scale = Vector2(0.16, 0.16)
 sprite_frames = SubResource("SpriteFrames_13qdw")
 animation = &"idle"
-frame = 3
-frame_progress = 0.677593
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=414563548]
-position = Vector2(-1.22, 0)
+position = Vector2(2.9802322e-08, 0.50000244)
 scale = Vector2(0.07039983, 0.051200133)
 shape = SubResource("RectangleShape2D_xrivr")
 
@@ -100,10 +98,9 @@ rotation = 0.04107278
 [node name="Marker2D" type="Marker2D" parent="Path2D/PathFollow2D" unique_id=2114836532]
 
 [node name="HitboxArea" type="Area2D" parent="." unique_id=307610318]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxArea" unique_id=1689257528]
-position = Vector2(0, 2)
+position = Vector2(-0.5000007, 1.4999993)
 scale = Vector2(0.43999892, 0.32000065)
 shape = SubResource("RectangleShape2D_13qdw")
 

@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://8h7qplenuofu" path="res://Sprites/patinoar.png" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://csmcj43oins0r" path="res://scenes/enemies/HockJock.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://d1mtjl7ora2tx" path="res://scenes/enemies/EnemySpawner.tscn" id="4_jyhfs"]
+[ext_resource type="Texture2D" uid="uid://kehe566fjrhy" path="res://Placeholders/icon.svg" id="5_tbgi4"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_sugp2"]
 vertices = PackedVector2Array(451.4297, 384.92188, 1057.6016, 548.85156, 83.171875, 535.1406, 308, 386.07813, 90.82031, 101.92969, 308, 249.17188, 1040.3672, 96.046875, 445.57813, 246.84375)
@@ -29,11 +30,13 @@ position = Vector2(591, 328)
 
 [node name="HockJock" parent="." unique_id=1652384883 instance=ExtResource("3_sugp2")]
 position = Vector2(75, 54)
+scale = Vector2(1, 1)
 motion_mode = 0
 
 [node name="EnemySpawner" parent="." unique_id=1851903758 node_paths=PackedStringArray("player") instance=ExtResource("4_jyhfs")]
 player = NodePath("../Player")
 scenes = null
+
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=2100808560]
 position = Vector2(19, -4)
 navigation_polygon = SubResource("NavigationPolygon_sugp2")
@@ -44,7 +47,7 @@ physics_material_override = SubResource("PhysicsMaterial_jyhfs")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1375858407]
 position = Vector2(14, 85)
-texture = ExtResource("1_0wfyh")
+texture = ExtResource("5_tbgi4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2014232942]
 position = Vector2(14, 85)
@@ -56,7 +59,7 @@ physics_material_override = SubResource("PhysicsMaterial_jyhfs")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2" unique_id=1267047327]
 position = Vector2(14, 85)
-texture = ExtResource("1_0wfyh")
+texture = ExtResource("5_tbgi4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1492434349]
 position = Vector2(14, 85)
