@@ -1,10 +1,17 @@
 [gd_scene format=3 uid="uid://dme8v6evgtrnx"]
 
 [ext_resource type="Script" uid="uid://c8fd3u0sl6ttm" path="res://Scripts/player.gd" id="1_g2els"]
+<<<<<<< Updated upstream
 [ext_resource type="Texture2D" uid="uid://cr082k1dt05e3" path="res://Sprites/idle_front.png" id="2_g2els"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xrivr"]
 size = Vector2(252.75, 808)
+=======
+[ext_resource type="Texture2D" uid="uid://jj3gs8258mhe" path="res://Placeholders/idle_front.png" id="2_g2els"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xrivr"]
+size = Vector2(60, 105)
+>>>>>>> Stashed changes
 
 [sub_resource type="Curve2D" id="Curve2D_g2els"]
 _data = {
@@ -24,12 +31,21 @@ pathFollow = NodePath("Path2D/PathFollow2D")
 wave_enemy_position = NodePath("Path2D/PathFollow2D/Marker2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2003258413]
+<<<<<<< Updated upstream
 scale = Vector2(0.16, 0.16)
 texture = ExtResource("2_g2els")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=414563548]
 position = Vector2(-1.22, 0)
 scale = Vector2(0.16, 0.16)
+=======
+position = Vector2(-2.0000305, 8)
+scale = Vector2(0.18128654, 0.12289157)
+texture = ExtResource("2_g2els")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=414563548]
+position = Vector2(-3, 8.5)
+>>>>>>> Stashed changes
 shape = SubResource("RectangleShape2D_xrivr")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1103006166]
