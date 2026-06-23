@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8h7qplenuofu"
-path="res://.godot/imported/patinoar.png-c29aaf6f94ccb84d4dcdffc3aa03a843.ctex"
+uid="uid://cxn4tuxfpdot"
+path="res://.godot/imported/idle_front_resized.png-303a2534bd90d6deb8c5b1f0a01b21aa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/patinoar.png"
-dest_files=["res://.godot/imported/patinoar.png-c29aaf6f94ccb84d4dcdffc3aa03a843.ctex"]
+source_file="res://Sprites/MC/idle_front_resized.png"
+dest_files=["res://.godot/imported/idle_front_resized.png-303a2534bd90d6deb8c5b1f0a01b21aa.ctex"]
 
 [params]
 

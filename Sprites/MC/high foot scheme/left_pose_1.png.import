@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8h7qplenuofu"
-path="res://.godot/imported/patinoar.png-c29aaf6f94ccb84d4dcdffc3aa03a843.ctex"
+uid="uid://867mi58h87ta"
+path="res://.godot/imported/left_pose_1.png-4505519c58139fc8156138375184bf5e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/patinoar.png"
-dest_files=["res://.godot/imported/patinoar.png-c29aaf6f94ccb84d4dcdffc3aa03a843.ctex"]
+source_file="res://Sprites/MC/high foot scheme/left_pose_1.png"
+dest_files=["res://.godot/imported/left_pose_1.png-4505519c58139fc8156138375184bf5e.ctex"]
 
 [params]
 

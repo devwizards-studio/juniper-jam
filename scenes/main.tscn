@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://c8w6xvce4f4to"]
 
-[ext_resource type="Texture2D" uid="uid://kehe566fjrhy" path="res://Placeholders/icon.svg" id="1_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://dme8v6evgtrnx" path="res://scenes/player.tscn" id="1_o5qli"]
-[ext_resource type="Texture2D" uid="uid://cu2c8qn7o5kbe" path="res://Sprites/patinoar.png" id="1_sugp2"]
+[ext_resource type="Texture2D" uid="uid://8h7qplenuofu" path="res://Sprites/patinoar.png" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://csmcj43oins0r" path="res://scenes/enemies/HockJock.tscn" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://d1mtjl7ora2tx" path="res://scenes/enemies/EnemySpawner.tscn" id="4_jyhfs"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_sugp2"]
 vertices = PackedVector2Array(451.4297, 384.92188, 1057.6016, 548.85156, 83.171875, 535.1406, 308, 386.07813, 90.82031, 101.92969, 308, 249.17188, 1040.3672, 96.046875, 445.57813, 246.84375)
@@ -19,9 +19,8 @@ size = Vector2(122, 120)
 
 [node name="main" type="Node2D" unique_id=48790755]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1309012133]
-position = Vector2(589, 323)
-scale = Vector2(0.59999996, 0.5898148)
+[node name="map" type="Sprite2D" parent="." unique_id=1309012133]
+position = Vector2(633, 384.99994)
 texture = ExtResource("1_sugp2")
 
 [node name="Player" parent="." unique_id=1212704905 instance=ExtResource("1_o5qli")]
@@ -32,6 +31,9 @@ position = Vector2(591, 328)
 position = Vector2(75, 54)
 motion_mode = 0
 
+[node name="EnemySpawner" parent="." unique_id=1851903758 node_paths=PackedStringArray("player") instance=ExtResource("4_jyhfs")]
+player = NodePath("../Player")
+scenes = null
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=2100808560]
 position = Vector2(19, -4)
 navigation_polygon = SubResource("NavigationPolygon_sugp2")
