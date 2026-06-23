@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
+class_name Player
 
+@export var sprite : AnimatedSprite2D
 @export var max_hp : int
 var curr_hp : int 
 @export var atk_dmg : int
@@ -30,7 +32,7 @@ func movement(delta: float):
 		pass
 		#print("play the walk anim")
 	else: 
-		pass
+		sprite.play("idle")
 		#print("play the idle anim")
 	
 	var lerp_weight = delta * (acceleration if input else friction)

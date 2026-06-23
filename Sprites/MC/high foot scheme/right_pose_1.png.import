@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cr082k1dt05e3"
-path="res://.godot/imported/idle_front.png-278e843210d0f452bbd75d320b8e4d29.ctex"
+uid="uid://biua362kjk45u"
+path="res://.godot/imported/right_pose_1.png-e52dfd6bcf2140eb74fc6a3b0bbeb579.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/idle_front.png"
-dest_files=["res://.godot/imported/idle_front.png-278e843210d0f452bbd75d320b8e4d29.ctex"]
+source_file="res://Sprites/MC/high foot scheme/right_pose_1.png"
+dest_files=["res://.godot/imported/right_pose_1.png-e52dfd6bcf2140eb74fc6a3b0bbeb579.ctex"]
 
 [params]
 
