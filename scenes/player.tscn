@@ -85,7 +85,7 @@ frame_progress = 0.677593
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=414563548]
 position = Vector2(-1.22, 0)
-scale = Vector2(0.16, 0.16)
+scale = Vector2(0.07039983, 0.051200133)
 shape = SubResource("RectangleShape2D_xrivr")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1103006166]
@@ -104,6 +104,7 @@ visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxArea" unique_id=1689257528]
 position = Vector2(0, 2)
+scale = Vector2(0.43999892, 0.32000065)
 shape = SubResource("RectangleShape2D_13qdw")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1439811914]
