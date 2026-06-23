@@ -1,19 +1,52 @@
 [gd_scene format=3 uid="uid://dme8v6evgtrnx"]
 
-[ext_resource type="Texture2D" uid="uid://kehe566fjrhy" path="res://Placeholders/icon.svg" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://c8fd3u0sl6ttm" path="res://Scripts/player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://cr082k1dt05e3" path="res://Sprites/idle_front.png" id="2_g2els"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xrivr"]
-size = Vector2(123, 122)
+size = Vector2(252.75, 808)
 
-[node name="Player" type="CharacterBody2D" unique_id=1212704905]
+[sub_resource type="Curve2D" id="Curve2D_g2els"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -567, 397, 0, 0, 0, 0, -494, 400, 0, 0, 0, 0, -342, 410, 0, 0, 0, 0, -112, 397, 0, 0, 0, 0, 114, 400, 0, 0, 0, 0, 279, 405, 0, 0, 0, 0, 638, 401, 0, 0, 0, 0, 642, -334, 0, 0, 0, 0, 647, -377, 0, 0, 0, 0, -635, -381, 0, 0, 0, 0, -646, 401, 0, 0, 0, 0, -567, 397)
+}
+point_count = 12
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_13qdw"]
+size = Vector2(54, 142)
+
+[node name="Player" type="CharacterBody2D" unique_id=1212704905 node_paths=PackedStringArray("path2D", "pathFollow", "wave_enemy_position") groups=["player"]]
 script = ExtResource("1_g2els")
+max_hp = 100
+atk_dmg = 25
+path2D = NodePath("Path2D")
+pathFollow = NodePath("Path2D/PathFollow2D")
+wave_enemy_position = NodePath("Path2D/PathFollow2D/Marker2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2003258413]
-texture = ExtResource("1_3vyb7")
+scale = Vector2(0.16, 0.16)
+texture = ExtResource("2_g2els")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=414563548]
-position = Vector2(-1.5, -1)
+position = Vector2(-1.22, 0)
+scale = Vector2(0.16, 0.16)
 shape = SubResource("RectangleShape2D_xrivr")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1103006166]
+
+[node name="Path2D" type="Path2D" parent="." unique_id=1867554208]
+curve = SubResource("Curve2D_g2els")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=2076382481]
+position = Vector2(-567, 397)
+rotation = 0.04107278
+
+[node name="Marker2D" type="Marker2D" parent="Path2D/PathFollow2D" unique_id=2114836532]
+
+[node name="HitboxArea" type="Area2D" parent="." unique_id=307610318]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxArea" unique_id=1689257528]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_13qdw")
+
+[connection signal="body_entered" from="HitboxArea" to="." method="_on_hitbox_area_body_entered"]
