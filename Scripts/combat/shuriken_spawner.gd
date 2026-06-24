@@ -19,7 +19,7 @@ func _on_timer_timeout() -> void:
 	spawn_shurikens()
 	
 func spawn_shurikens():
-	var start_point = global_position
+	var start_point = position
 	var horizontal_angle_spacing = 360.0 / CombatStats.number_of_shurikens;
 	var horizontal_wiggle_modifier = horizontal_wiggle_size * sin(wiggle_speed * Time.get_ticks_msec())
 	
@@ -31,8 +31,8 @@ func spawn_shurikens():
 		var shuriken_direction = (new_position_vector - start_point).normalized()
 		
 		var new_shuriken = SHURIKEN.instantiate()
-		new_shuriken.global_position = start_point
-		new_shuriken.start_position = start_point
+		new_shuriken.position = start_point
+		new_shuriken.start_position = global_position
 		new_shuriken.radius = radius
 		
 		new_shuriken.move_speed = shuriken_speed
