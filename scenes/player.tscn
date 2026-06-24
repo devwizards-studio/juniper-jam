@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dttrv21ju8j7a" path="res://Sprites/MC/idle anim/idle_left.png" id="7_f1ej7"]
 [ext_resource type="Texture2D" uid="uid://cq6ay81igrcx6" path="res://Sprites/MC/idle anim/idle_back.png" id="8_oprun"]
 [ext_resource type="Texture2D" uid="uid://de0wfefkskf31" path="res://Sprites/MC/idle anim/idle_right.png" id="9_a8ls1"]
+[ext_resource type="PackedScene" uid="uid://cs85g36tlohap" path="res://scenes/combat/shuriken_spawner.tscn" id="10_y4r1p"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_13qdw"]
 animations = [{
@@ -106,5 +107,9 @@ shape = SubResource("RectangleShape2D_13qdw")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1439811914]
 libraries/ = SubResource("AnimationLibrary_fulsm")
+
+[node name="ShurikenSpawner" parent="." unique_id=1000780227 instance=ExtResource("10_y4r1p")]
+radius = 200.0
+horizontal_angle = 10.0
 
 [connection signal="body_entered" from="HitboxArea" to="." method="_on_hitbox_area_body_entered"]

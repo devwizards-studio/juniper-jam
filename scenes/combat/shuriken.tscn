@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://c5fwn3b52huqf"]
+
+[ext_resource type="Script" uid="uid://cq6hw4pjyvu6q" path="res://Scripts/combat/shuriken.gd" id="1_1gmps"]
+[ext_resource type="Texture2D" uid="uid://kehe566fjrhy" path="res://Placeholders/icon.svg" id="2_b611m"]
+
+[node name="Shuriken" type="Node2D" unique_id=1376009305]
+script = ExtResource("1_1gmps")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1168328905]
+position = Vector2(-3.8146973e-06, -0.9999962)
+scale = Vector2(0.171875, 0.1484375)
+texture = ExtResource("2_b611m")
