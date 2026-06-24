@@ -1,3 +1,24 @@
 [gd_scene format=3 uid="uid://dmv36odapk15g"]
 
+[ext_resource type="Script" uid="uid://k23egh2tf6vi" path="res://Scripts/enemyscripts/enemy.gd" id="1_a1bhn"]
+[ext_resource type="Texture2D" uid="uid://kehe566fjrhy" path="res://Placeholders/icon.svg" id="1_vvqeg"]
+[ext_resource type="Script" uid="uid://wbcb6tgmlxnp" path="res://Resources/EnemyStats.gd" id="2_adob7"]
+
+[sub_resource type="Resource" id="Resource_87njv"]
+script = ExtResource("2_adob7")
+hp = 2000
+atk_dmg = 100
+max_speed = 70
+curr_speed = 70
+knockback_resistance = 1.0
+cost = 50
+metadata/_custom_type_script = "uid://wbcb6tgmlxnp"
+
 [node name="Sharknado" type="CharacterBody2D" unique_id=409184938]
+script = ExtResource("1_a1bhn")
+stats = SubResource("Resource_87njv")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=997641472]
+rotation = 0.87639636
+scale = Vector2(2.2053025, 1.9052966)
+texture = ExtResource("1_vvqeg")

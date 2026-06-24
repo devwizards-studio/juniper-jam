@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="WaveInfo" format=3 uid="uid://dme2alq1w1hwu"]
+
+[ext_resource type="Script" uid="uid://co864wqb3y32l" path="res://Resources/waves/wave_info.gd" id="1_2x7jd"]
+
+[resource]
+script = ExtResource("1_2x7jd")
+wave_value = 10
+wave_duration = 10.0
+wave_quota = 30
+metadata/_custom_type_script = "uid://co864wqb3y32l"

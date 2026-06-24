@@ -1,3 +1,24 @@
 [gd_scene format=3 uid="uid://dq1evqwi81vm"]
 
+[ext_resource type="Texture2D" uid="uid://kehe566fjrhy" path="res://Placeholders/icon.svg" id="1_56c8a"]
+[ext_resource type="Script" uid="uid://k23egh2tf6vi" path="res://Scripts/enemyscripts/enemy.gd" id="1_to6rm"]
+[ext_resource type="Script" uid="uid://wbcb6tgmlxnp" path="res://Resources/EnemyStats.gd" id="2_07gxv"]
+
+[sub_resource type="Resource" id="Resource_2x7jd"]
+script = ExtResource("2_07gxv")
+hp = 500
+atk_dmg = 50
+max_speed = 20
+curr_speed = 20
+knockback_resistance = 1.0
+cost = 30
+metadata/_custom_type_script = "uid://wbcb6tgmlxnp"
+
 [node name="PolarBear" type="CharacterBody2D" unique_id=344848122]
+script = ExtResource("1_to6rm")
+stats = SubResource("Resource_2x7jd")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=717278958]
+position = Vector2(3, -3.8146973e-06)
+scale = Vector2(2.625, 0.6484375)
+texture = ExtResource("1_56c8a")
