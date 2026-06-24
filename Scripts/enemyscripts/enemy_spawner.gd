@@ -2,15 +2,60 @@ extends Node2D
 
 @export var player : Player
 @export var scenes : Array[PackedScene]
+@export var enemies : Array[Enemy]
+@export var cost_arr : Dictionary[PackedScene, int]
+@export var wave_timer : Timer
+@export var waves : Array[WaveInfo]
 
 var enemy_counter : int  
+var curr_wave : int = 0
+var curr_wave_val : int
+@export var spawn_interval : float = 5.0
 
 var rng : RandomNumberGenerator = RandomNumberGenerator.new()
 
-func wave_spawn(enemy_scene : PackedScene):
+func _ready() -> void:
+	curr_wave += 1
+	generate_wave()
+
+
+func generate_wave():
+	print("SPAWNED A WAVE")
+	curr_wave_val = waves[0].wave_value * curr_wave
+	spawn_wave(curr_wave_val)
+	curr_wave += 1
+	waves[0].wave_duration *= 2
+	wave_timer.wait_time = waves[0].wave_duration
+	wave_timer.start()
+	print("DURATION UNTIL NEXT WAVE: ", wave_timer.wait_time)
+	
+	
+func spawn_wave(val : int):
+	var generated_enemies : Array[Enemy] = []
+	
+	
+	while(val > 0):
+		var available_enemies : Array[Enemy] = []
+		for enemy in enemies:
+			if enemy.stats.cost <= val:
+				available_enemies.append(enemy)
+		var rand_id : int = randi_range(0, available_enemies.size() -1)
+		var rand_enemy = available_enemies[rand_id]
+		var rand_cost : int = rand_enemy.stats.cost
+		
+		generated_enemies.append(rand_enemy)
+		val -= rand_cost
+	print("nr of enemies in the wave are: ", generated_enemies.size())
+	
+	for enemy in generated_enemies:
+		wave_spawn(enemy)
+	#await get_tree().create_timer(waves[0].wave_duration).timeout
+
+func wave_spawn(enemy_scene : Enemy):
+	enemy_scene.process_mode = Node.PROCESS_MODE_INHERIT
 	print("spawned an enemy")
 	player.pathFollow.progress_ratio = rng.randf_range(0.0,1.0)
-	var new_enemy = enemy_scene.instantiate()
+	var new_enemy = enemy_scene.duplicate()
 	new_enemy.name = "Enemy_%d" % enemy_counter
 	enemy_counter += 1
 	add_child(new_enemy)
@@ -19,5 +64,8 @@ func wave_spawn(enemy_scene : PackedScene):
 
 
 
+
+
 func _on_wave_timer_timeout() -> void:
-	pass # Replace with function body.
+	print("SPAWNIN'!")
+	generate_wave()

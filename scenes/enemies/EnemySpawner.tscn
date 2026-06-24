@@ -2,7 +2,11 @@
 
 [ext_resource type="Script" uid="uid://b06dy5388t1r4" path="res://Scripts/enemyscripts/enemy_spawner.gd" id="1_wb0qc"]
 
-[node name="EnemySpawner" type="Node2D" unique_id=1851903758]
+[node name="EnemySpawner" type="Node2D" unique_id=1851903758 node_paths=PackedStringArray("wave_timer")]
 script = ExtResource("1_wb0qc")
+wave_timer = NodePath("WaveTimer")
 
 [node name="WaveTimer" type="Timer" parent="." unique_id=1328154453]
+wait_time = 20.0
+
+[connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]
