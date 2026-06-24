@@ -39,6 +39,8 @@ func spawn_wave(val : int):
 		for enemy in enemies:
 			if enemy.stats.cost <= val:
 				available_enemies.append(enemy)
+		if available_enemies.is_empty():
+			break
 		var rand_id : int = randi_range(0, available_enemies.size() -1)
 		var rand_enemy = available_enemies[rand_id]
 		var rand_cost : int = rand_enemy.stats.cost
