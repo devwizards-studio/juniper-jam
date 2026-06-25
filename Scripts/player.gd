@@ -10,7 +10,22 @@ var curr_hp : int
 var acceleration : int = 25
 var friction : int =  5
 
-
+var XP : int = 0:
+	set(value):
+		XP = value
+		%XP.value = value
+		
+var total_XP : int = 0
+var level : int = 1:
+	set(value):
+		level = value
+		%Level.text ="Lv " + str(value)
+		
+		if level >= 3:
+			%XP.max_value = 20
+		elif level >= 7:
+			%XP.max_value = 40
+	
 @export var path2D : Path2D
 @export var pathFollow : PathFollow2D
 @export var wave_enemy_position : Marker2D
@@ -21,7 +36,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	movement(delta)
-	
+	check_XP()
 
 func movement(delta: float):
 	var input = Vector2(
@@ -55,5 +70,20 @@ func take_damage(dmg_val : int):
 		get_tree().quit()
 	
 	
+func gain_XP(amount):
+	XP += amount
+	total_XP += amount
+
+func check_XP():
+	if XP > %XP.max_value:
+		XP -= %XP.max_value
+		level += 1
+		if level <= 20:
+			%XP.max_value = 10 + (level - 1) * 5
+			
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_accept"):
+		gain_XP(1)
 	
 	
