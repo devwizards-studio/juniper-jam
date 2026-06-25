@@ -3,6 +3,7 @@ extends Node2D
 const SHURIKEN = preload("res://scenes/combat/shuriken.tscn")
 
 @export var combat_stats: CombatStats
+@export var time_scaler: TimeScaler
 
 @onready var timer: Timer = $Timer
 
@@ -14,8 +15,9 @@ const SHURIKEN = preload("res://scenes/combat/shuriken.tscn")
 @export var wiggle_speed: float = 0
 
 @export var acceleration: float = 0
-	
+
 func _on_timer_timeout() -> void:
+	#timer.wait_time = combat_stats.fire_rate / time_scaler.time_scale
 	spawn_shurikens()
 	
 func spawn_shurikens():

@@ -1,5 +1,7 @@
 extends Node2D
 
+@export var time_scaler: TimeScaler
+
 var move_direction: Vector2
 var start_position: Vector2
 var move_speed: float = 5.0
@@ -27,7 +29,7 @@ func _process(delta: float) -> void:
 	var new_position = Vector2(shuriken_dir_x_position, shuriken_dir_y_position)
 	move_direction = (new_position - start_position).normalized()
 
-	global_position += move_direction * move_speed * delta
+	global_position += move_direction * move_speed * delta * time_scaler.time_scale
 	if start_position.distance_to(global_position) >= radius:
 		queue_free()
 

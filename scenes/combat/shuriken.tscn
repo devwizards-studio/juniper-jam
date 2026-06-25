@@ -2,9 +2,11 @@
 
 [ext_resource type="Script" uid="uid://cq6hw4pjyvu6q" path="res://Scripts/combat/shuriken.gd" id="1_1gmps"]
 [ext_resource type="Texture2D" uid="uid://kehe566fjrhy" path="res://Placeholders/icon.svg" id="2_b611m"]
+[ext_resource type="Resource" uid="uid://chj2sl4cv31tn" path="res://Resources/TimeScale/time_scaler.tres" id="2_kp4el"]
 
 [node name="Shuriken" type="Node2D" unique_id=1376009305]
 script = ExtResource("1_1gmps")
+time_scaler = ExtResource("2_kp4el")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1168328905]
 position = Vector2(-3.8146973e-06, -0.9999962)

@@ -42,6 +42,7 @@ radius = 188.8889
 scale = Vector2(0.09, 0.09)
 motion_mode = 1
 script = ExtResource("1_lx2wv")
+time_scaler = ExtResource("2_x21h4")
 stats = ExtResource("2_ixy7k")
 
 [node name="HitboxArea" type="Area2D" parent="." unique_id=1630271514]
