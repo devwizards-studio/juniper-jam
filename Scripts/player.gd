@@ -9,6 +9,7 @@ class_name Player
 var curr_hp : int 
 @export var atk_dmg : int
 
+var in_minigame : bool = false
 var acceleration : int = 25
 var friction : int =  5
 
@@ -24,6 +25,8 @@ func _physics_process(delta: float) -> void:
 	movement(delta)
 
 func movement(delta: float):
+	if in_minigame:
+		return
 	var input = Vector2(
 		Input.get_action_strength("right") - Input.get_action_strength("left"),
 		Input.get_action_strength("down") - Input.get_action_strength("up")

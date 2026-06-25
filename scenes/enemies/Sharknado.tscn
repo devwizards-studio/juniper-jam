@@ -46,3 +46,5 @@ frame_progress = 0.5387959
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=870780796]
 shape = SubResource("CapsuleShape2D_ifpyu")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=880045907]

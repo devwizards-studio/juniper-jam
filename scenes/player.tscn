@@ -36,7 +36,7 @@
 [ext_resource type="Texture2D" uid="uid://ctr4id3y28huw" path="res://Sprites/MC/walking anim/idle_right_walk_2.png" id="24_4gjji"]
 [ext_resource type="Texture2D" uid="uid://c3t6ktpbalrg4" path="res://Sprites/MC/walking anim/idle_back_2.png" id="25_u2ulf"]
 [ext_resource type="Texture2D" uid="uid://c0f77e3s8lami" path="res://Sprites/MC/walking anim/idle_back_walk_1.png" id="26_6e8lb"]
-[ext_resource type="Script" uid="uid://08ac5a2cpotc" path="res://Scripts/player_camera.gd" id="28_hax0n"]
+[ext_resource type="Script" uid="uid://cigp45vi54wg" path="res://Scripts/UI/player_camera.gd" id="28_hax0n"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_13qdw"]
 animations = [{

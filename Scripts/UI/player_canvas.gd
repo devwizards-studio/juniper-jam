@@ -35,10 +35,17 @@ func check_XP():
 
 #start minigame
 func _on_timer_timeout() -> void:
+	var player = get_parent()
+	player.in_minigame = true
+	
+	var animations = ["high_foot", "lutz", "spin"]
+	var chosen = animations[randi() % animations.size()]
+	print("Animatie aleasa: ", chosen)
+	animated_sprite_2d.play(chosen)
+	
 	player_camera.zoom_in()
 	time_scaler.time_scale = 0.1
-	animated_sprite_2d.speed_scale = time_scaler.time_scale
-	
+	animated_sprite_2d.speed_scale = 2.0  
 	var new_minigame = SPIN_MINIGAME.instantiate()
 	add_child(new_minigame)
 	new_minigame.minigame_over.connect(_on_minigame_over)
@@ -46,6 +53,9 @@ func _on_timer_timeout() -> void:
 	timer.stop()
 
 func _on_minigame_over(scored_points: float):
+	var player = get_parent()
+	player.in_minigame = false
+	animated_sprite_2d.play("idle")  # revine la idle după minigame
 	player_camera.zoom_out()
 	time_scaler.time_scale = 1
 	animated_sprite_2d.speed_scale = time_scaler.time_scale
