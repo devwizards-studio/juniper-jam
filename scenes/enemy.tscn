@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://dfwfxes1oeqa4"]
 
 [ext_resource type="Texture2D" uid="uid://kehe566fjrhy" path="res://Placeholders/icon.svg" id="1_7p1mj"]
-[ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_md0e3"]
+[ext_resource type="Script" uid="uid://bse0ekdgxy8gu" path="res://Scripts/enemy.gd" id="1_md0e3"]
+[ext_resource type="Resource" uid="uid://chj2sl4cv31tn" path="res://Resources/TimeScale/time_scaler.tres" id="2_4ra3w"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_md0e3"]
 radius = 12.0
@@ -11,6 +12,7 @@ scale = Vector2(0.225, 0.225)
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_md0e3")
+time_scaler = ExtResource("2_4ra3w")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1940102837]
 modulate = Color(1, 0.07450981, 0.25882354, 1)

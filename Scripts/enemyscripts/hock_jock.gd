@@ -11,5 +11,5 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	var direction = global_position.direction_to(player.global_position)
-	velocity = direction * stats.curr_speed
+	velocity = direction * stats.curr_speed * time_scaler.time_scale
 	move_and_slide()
