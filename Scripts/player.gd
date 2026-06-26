@@ -3,7 +3,7 @@ class_name Player
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var invincibility_timer: Timer = $InvincibilityTimer
-@onready var hitbox_area: Area2D = $HitboxArea
+@onready var hitbox_area: Area2D = $HurttboxArea
 
 @onready var health_bar: HealthBar = $HealthBar
 @onready var minigame_timer: Timer = $UI/MinigameTimer
