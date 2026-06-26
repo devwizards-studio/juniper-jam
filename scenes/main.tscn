@@ -24,7 +24,7 @@ atk_dmg = 20
 max_speed = 80
 curr_speed = 80
 knockback_resistance = 1.0
-cost = 1
+cost = 100
 score_points = 200
 metadata/_custom_type_script = "uid://wbcb6tgmlxnp"
 
@@ -35,7 +35,7 @@ atk_dmg = 50
 max_speed = 50
 curr_speed = 50
 knockback_resistance = 1.0
-cost = 6
+cost = 20
 score_points = 500
 metadata/_custom_type_script = "uid://wbcb6tgmlxnp"
 
@@ -46,7 +46,7 @@ atk_dmg = 100
 max_speed = 69
 curr_speed = 69
 knockback_resistance = 1.0
-cost = 10
+cost = 5
 score_points = 1000
 metadata/_custom_type_script = "uid://wbcb6tgmlxnp"
 
@@ -56,6 +56,12 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-387, -12, -456, 1513, 2756, 1523, 2673, -63)])
 parsed_geometry_type = 1
 source_geometry_group_name = &"navigation"
+
+[sub_resource type="Curve2D" id="Curve2D_trceg"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -594.6383, 748.86566, 0, 0, 0, 0, -295.7605, 745.2703, 0, 0, 0, 0, -93.559814, 733.58563, 0, 0, 0, 0, 132.02026, 721.00214, 0, 0, 0, 0, 283.67065, 721.00214, 0, 0, 0, 0, 453.64563, 665.27496, 0, 0, 0, 0, 514.3058, 397.42517, 0, 0, 0, 0, 473.86572, -284.7828, 0, 0, 0, 0, 437.2168, -673.0751, 0, 0, 0, 0, -1595.5315, -664.08685, 0, 0, 0, 0, -1635.9717, 699.43024, 0, 0, 0, 0, -591.47894, 747.06805)
+}
+point_count = 12
 
 [node name="main" type="Node2D" unique_id=48790755 node_paths=PackedStringArray("HockJock_model", "PolarBear_model", "Sharknado_model", "enemy_spawner", "game_over_screen")]
 script = ExtResource("1_choun")
@@ -94,7 +100,7 @@ polygon = PackedVector2Array(-6.1904297, 77.73511, -41.904785, 123.320496, -44.2
 z_index = 1
 position = Vector2(591, 328)
 
-[node name="EnemySpawner" parent="." unique_id=1851903758 node_paths=PackedStringArray("player", "cost_arr") instance=ExtResource("4_jyhfs")]
+[node name="EnemySpawner" parent="." unique_id=1851903758 node_paths=PackedStringArray("player", "cost_arr", "pathFollow", "wave_enemy_position") instance=ExtResource("4_jyhfs")]
 player = NodePath("../Player")
 scenes = Array[PackedScene]([ExtResource("3_sugp2"), ExtResource("5_o6xl0"), ExtResource("6_tipki")])
 cost_arr = {
@@ -103,6 +109,8 @@ ExtResource("5_o6xl0"): NodePath("PolarBear"),
 ExtResource("6_tipki"): NodePath("Sharknado")
 }
 waves = Array[ExtResource("7_85g3d")]([ExtResource("8_choun"), null, null])
+pathFollow = NodePath("../Path2D/PathFollow2D")
+wave_enemy_position = NodePath("../Path2D/PathFollow2D/Marker2D")
 
 [node name="HockJock" parent="EnemySpawner" unique_id=1652384883 instance=ExtResource("3_sugp2")]
 process_mode = 4
@@ -138,6 +146,17 @@ leaderboard = NodePath("../leaderboard")
 process_mode = 2
 visible = false
 z_index = 2
+
+[node name="Path2D" type="Path2D" parent="." unique_id=171373215]
+position = Vector2(2076.0667, 674.8391)
+scale = Vector2(1.5825865, 1.112564)
+curve = SubResource("Curve2D_trceg")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=1817998136]
+position = Vector2(-594.6383, 748.86566)
+rotation = -0.012028874
+
+[node name="Marker2D" type="Marker2D" parent="Path2D/PathFollow2D" unique_id=140979112]
 
 [connection signal="game_lost" from="Player" to="." method="_on_player_game_lost"]
 [connection signal="send_points" from="EnemySpawner" to="." method="_on_enemy_spawner_send_points"]

@@ -7,6 +7,9 @@ extends Node2D
 @export var wave_timer : Timer
 @export var waves : Array[WaveInfo]
 
+@export var pathFollow : PathFollow2D
+@export var wave_enemy_position : Marker2D
+
 var enemy_counter : int  
 var curr_wave : int = 0
 var curr_wave_val : int
@@ -56,7 +59,7 @@ func spawn_wave(val : int):
 
 func wave_spawn(enemy_scene : PackedScene):
 	print("spawned an enemy")
-	player.pathFollow.progress_ratio = rng.randf_range(0.0,1.0)
+	pathFollow.progress_ratio = rng.randf_range(0.0,1.0)
 	var new_enemy = enemy_scene.instantiate()
 	new_enemy.name = "Enemy_%d" % enemy_counter
 	enemy_counter += 1
@@ -65,7 +68,7 @@ func wave_spawn(enemy_scene : PackedScene):
 	#add_child(new_enemy)
 	new_enemy.send_points.connect(_on_enemy_send_points)
 	
-	new_enemy.global_position = player.wave_enemy_position.global_position
+	new_enemy.global_position = wave_enemy_position.global_position
 
 func _on_wave_timer_timeout() -> void:
 	print("SPAWNIN'!")
