@@ -8,6 +8,5 @@ hp = 100
 atk_dmg = 20
 max_speed = 80
 curr_speed = 80
-knockback_resistance = 1.0
 cost = 100
 metadata/_custom_type_script = "uid://wbcb6tgmlxnp"

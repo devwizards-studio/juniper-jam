@@ -24,7 +24,7 @@ atk_dmg = 20
 max_speed = 80
 curr_speed = 80
 knockback_resistance = 1.0
-cost = 100
+cost = 1
 score_points = 200
 metadata/_custom_type_script = "uid://wbcb6tgmlxnp"
 
@@ -35,7 +35,7 @@ atk_dmg = 50
 max_speed = 50
 curr_speed = 50
 knockback_resistance = 1.0
-cost = 20
+cost = 3
 score_points = 500
 metadata/_custom_type_script = "uid://wbcb6tgmlxnp"
 
@@ -46,7 +46,7 @@ atk_dmg = 100
 max_speed = 69
 curr_speed = 69
 knockback_resistance = 1.0
-cost = 5
+cost = 100
 score_points = 1000
 metadata/_custom_type_script = "uid://wbcb6tgmlxnp"
 

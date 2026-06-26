@@ -5,6 +5,7 @@ class_name Enemy
 @export var time_scaler: TimeScaler
 @export var stats : EnemyStats
 @export var player_combat_stats: CombatStats # this is useless, just use the player reference
+@export var knockback_force : float = 100.0
 
 @onready var player : CharacterBody2D = get_tree().get_first_node_in_group("player")
 @onready var health_bar: HealthBar = $HealthBar

@@ -48,5 +48,5 @@ func _on_http_request_request_completed(result: int, response_code: int, headers
 	print("body: ", response)
 
 
-func _on_line_edit_text_submitted(new_text: String) -> void:
+func _on_line_edit_text_changed(new_text: String) -> void:
 	username = new_text
