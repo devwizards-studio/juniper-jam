@@ -5,7 +5,6 @@
 [ext_resource type="Resource" uid="uid://chj2sl4cv31tn" path="res://Resources/TimeScale/time_scaler.tres" id="2_fvqej"]
 [ext_resource type="Resource" uid="uid://bwo8fc8f2lunr" path="res://Resources/test.tres" id="2_ixy7k"]
 [ext_resource type="Texture2D" uid="uid://cdy521lq1884m" path="res://Sprites/Enemies/HockJock/hockey_1_left.png" id="3_3edk1"]
-[ext_resource type="Resource" uid="uid://dael080ppeurw" path="res://Resources/combat/combat_stats.tres" id="4_bdawo"]
 [ext_resource type="Texture2D" uid="uid://dpxjouf4wbhrp" path="res://Sprites/Enemies/HockJock/hockey_2_left.png" id="4_fvqej"]
 [ext_resource type="Texture2D" uid="uid://mpf45e0xrmah" path="res://Sprites/Enemies/HockJock/hockey_1.png" id="5_bdawo"]
 [ext_resource type="Texture2D" uid="uid://rgh73xryjhsm" path="res://Sprites/Enemies/HockJock/hockey_2.png" id="6_vlx8m"]
@@ -95,7 +94,6 @@ motion_mode = 1
 script = ExtResource("1_lx2wv")
 time_scaler = ExtResource("2_fvqej")
 stats = ExtResource("2_ixy7k")
-player_combat_stats = ExtResource("4_bdawo")
 anim_player = NodePath("hitFlashAnim")
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1630271514 groups=["enemies"]]

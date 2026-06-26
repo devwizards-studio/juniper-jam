@@ -36,7 +36,7 @@ func update_animation() -> void:
 func _on_hitbox_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("shuriken"):
 		health_bar.value = curr_hp
-		take_damage(player_combat_stats.damage * area.get_parent().crit_multiplier)
+		take_damage(player.stats.damage * area.get_parent().crit_multiplier)
 		
 		var knockback_direction = (global_position - player.global_position).normalized()
 		apply_knockback(knockback_direction, 100.0, 0.12)

@@ -104,4 +104,4 @@ texture = ExtResource("2_vjbsa")
 [connection signal="pressed" from="HBoxContainer/to leaderboard" to="." method="_on_to_leaderboard_pressed"]
 [connection signal="pressed" from="HBoxContainer/quit" to="." method="_on_quit_pressed"]
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]
-[connection signal="text_submitted" from="LineEdit" to="." method="_on_line_edit_text_submitted"]
+[connection signal="text_changed" from="LineEdit" to="." method="_on_line_edit_text_changed"]

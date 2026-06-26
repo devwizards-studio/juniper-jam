@@ -26,10 +26,11 @@ func on_points_received(points : int):
 """
 
 func compute_final_score() -> int:
-	return score
+	return score 
 
 func _on_player_game_lost() -> void:
 	var final_score = compute_final_score()
+	print("final score is: ", final_score)
 	get_tree().paused = true
 	game_over_screen.visible = true
 	game_over_screen.score_label.text = str(final_score)

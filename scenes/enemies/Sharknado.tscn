@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://xc3lvpp0yjuy" path="res://Scripts/enemyscripts/sharknado.gd" id="1_8kei1"]
 [ext_resource type="Resource" uid="uid://chj2sl4cv31tn" path="res://Resources/TimeScale/time_scaler.tres" id="2_8mauw"]
 [ext_resource type="Script" uid="uid://wbcb6tgmlxnp" path="res://Resources/EnemyStats.gd" id="3_3j6o6"]
-[ext_resource type="Resource" uid="uid://dael080ppeurw" path="res://Resources/combat/combat_stats.tres" id="3_b8cjm"]
 [ext_resource type="Shader" uid="uid://cx0fddkbj7hwc" path="res://Shaders/hit.gdshader" id="5_btnri"]
 [ext_resource type="Texture2D" uid="uid://dso384q71piv" path="res://Sprites/Enemies/re-sharknado/sharknado1.png" id="6_btnri"]
 [ext_resource type="Texture2D" uid="uid://cw5sjn2ggf15t" path="res://Sprites/Enemies/re-sharknado/sharknado2.png" id="7_3j6o6"]
@@ -17,7 +16,7 @@ hp = 200
 atk_dmg = 100
 max_speed = 70
 curr_speed = 70
-knockback_resistance = 1.0
+knockback_resistance = 12.0
 cost = 100
 score_points = 1000
 metadata/_custom_type_script = "uid://wbcb6tgmlxnp"
@@ -103,7 +102,6 @@ scale = Vector2(0.5, 0.5)
 script = ExtResource("1_8kei1")
 time_scaler = ExtResource("2_8mauw")
 stats = SubResource("Resource_hdw8j")
-player_combat_stats = ExtResource("3_b8cjm")
 anim_player = NodePath("hitFlashAnim")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1086406569]

@@ -16,7 +16,8 @@ var in_minigame : bool = false
 @export var sprite : AnimatedSprite2D
 @export var hit_timer : Timer
 @export var hurt_col : CollisionShape2D
-
+var start_time : float
+var end_time : float
 #@export var max_hp : int
 #var curr_hp : int 
 #@export var atk_dmg : int
@@ -27,9 +28,11 @@ var friction : int =  5
 @export var path2D : Path2D
 @export var pathFollow : PathFollow2D
 @export var wave_enemy_position : Marker2D
-signal game_lost
+signal game_lost()
 
 func _ready() -> void:
+	start_time = Time.get_unix_time_from_system()
+	
 	time_scaler.time_scale = 1.0
 	health_bar.max_value = stats.max_hp
 	health_bar.value = stats.max_hp
