@@ -31,9 +31,10 @@ func generate_wave():
 	print("SPAWNED A WAVE")
 	curr_wave_val = waves[0].wave_value * curr_wave
 	spawn_wave(curr_wave_val)
+	
 	curr_wave += 1
 	waves[0].wave_duration *= 1.2
-	#aici pune functia de upgrade
+	upgrade_enemies(curr_wave)
 	wave_timer.wait_time = waves[0].wave_duration
 	wave_timer.start()
 	print("DURATION UNTIL NEXT WAVE: ", wave_timer.wait_time)
@@ -107,3 +108,12 @@ func check_if_wave_cleared():
 		print("Wave Complete!")
 		wave_timer.stop()
 		wave_timer.timeout.emit()
+
+func upgrade_enemies(future_wave: int) -> void:
+	for scene in cost_arr:
+		cost_arr[scene].stats.hp += int(cost_arr[scene].stats.hp_multiplier * future_wave)
+		cost_arr[scene].stats.atk_dmg += int(cost_arr[scene].stats.atk_multiplier * future_wave)
+		print("the hp for ", cost_arr[scene].name, "is: ", cost_arr[scene].stats.hp)
+	
+	
+	

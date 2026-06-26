@@ -10,7 +10,7 @@ var score : int
 @export var game_over_screen : Control
 
 func _ready() -> void:
-	pass
+	print("come on")
 	#DISABLE GAME OVER HERE IF NECESSARY
 
 """

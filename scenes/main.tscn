@@ -26,6 +26,8 @@ curr_speed = 80
 knockback_resistance = 1.0
 cost = 1
 score_points = 200
+hp_multiplier = 0.75
+atk_multiplier = 0.6
 metadata/_custom_type_script = "uid://wbcb6tgmlxnp"
 
 [sub_resource type="Resource" id="Resource_xrivr"]
@@ -37,6 +39,8 @@ curr_speed = 50
 knockback_resistance = 1.0
 cost = 3
 score_points = 500
+hp_multiplier = 1.1
+atk_multiplier = 0.78
 metadata/_custom_type_script = "uid://wbcb6tgmlxnp"
 
 [sub_resource type="Resource" id="Resource_13qdw"]
@@ -48,6 +52,8 @@ curr_speed = 69
 knockback_resistance = 1.0
 cost = 100
 score_points = 1000
+hp_multiplier = 1.5
+atk_multiplier = 1.0
 metadata/_custom_type_script = "uid://wbcb6tgmlxnp"
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_sugp2"]

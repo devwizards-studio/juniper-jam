@@ -19,6 +19,8 @@ curr_speed = 68
 knockback_resistance = 5.0
 cost = 10
 score_points = 500
+hp_multiplier = 1.1
+atk_multiplier = 0.6
 metadata/_custom_type_script = "uid://wbcb6tgmlxnp"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xrivr"]

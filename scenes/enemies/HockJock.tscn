@@ -16,6 +16,8 @@ radius = 422.36835
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xrivr"]
 resource_local_to_scene = true
 shader = ExtResource("1_atrgm")
+shader_parameter/hit_flash_color = Color(1, 1, 1, 1)
+shader_parameter/hit_flash_on = false
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ifpyu"]
 animations = [{

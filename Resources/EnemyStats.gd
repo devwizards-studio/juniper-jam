@@ -10,3 +10,7 @@ class_name EnemyStats
 
 @export var cost : int 
 @export var score_points : int
+
+#MULTIPLIERS:
+@export var hp_multiplier : float
+@export var atk_multiplier : float
