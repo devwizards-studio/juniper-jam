@@ -7,6 +7,8 @@ extends CanvasLayer
 @onready var player_camera: PlayerCamera = $"../PlayerCamera"
 @onready var shuriken_spawner: ShurikenSpawner = $"../ShurikenSpawner"
 
+var anim_speed : float = 5.0
+
 var XP : int = 0:
 	set(value):
 		XP = value
@@ -25,9 +27,10 @@ func gain_XP(amount):
 	total_XP += amount
 	check_XP()
 func check_XP():
-	if XP > %XP.max_value:
+	if XP > %XP.max_value: # levels up
 		XP -= %XP.max_value
 		level += 1
+		speed_up_anims()
 		if level <= 20:
 			%XP.max_value += 100
 #start minigame
@@ -60,7 +63,7 @@ func _on_minigame_over():
 	animated_sprite_2d.play("idle")
 	player_camera.zoom_out()
 	time_scaler.time_scale = 1
-	animated_sprite_2d.speed_scale = 2.5
+	
 	minigame_timer.start()
 	
 func _on_minigame_won(scored_points: float):
@@ -69,3 +72,11 @@ func _on_minigame_won(scored_points: float):
 	
 func _on_minigame_lost():
 	puke_bar.add_puke_point()
+
+func speed_up_anims():
+	anim_speed += 1.0
+	animated_sprite_2d.sprite_frames.set_animation_speed("idle", anim_speed)
+	animated_sprite_2d.sprite_frames.set_animation_speed("lutz", anim_speed)
+	animated_sprite_2d.sprite_frames.set_animation_speed("spin", anim_speed)
+	animated_sprite_2d.sprite_frames.set_animation_speed("high_foot", anim_speed)
+	
