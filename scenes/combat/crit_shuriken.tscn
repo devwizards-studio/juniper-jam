@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dh84kkhfxesy1"]
+
+[ext_resource type="Script" uid="uid://cq6hw4pjyvu6q" path="res://Scripts/combat/shuriken.gd" id="1_cteb6"]
+[ext_resource type="Resource" uid="uid://chj2sl4cv31tn" path="res://Resources/TimeScale/time_scaler.tres" id="2_tiva3"]
+[ext_resource type="Texture2D" uid="uid://cfbgj3ai28c7r" path="res://Sprites/MC/shuriken.png" id="3_skcih"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_msjk4"]
+radius = 8.000772
+
+[node name="CritShuriken" type="Node2D" unique_id=906437450]
+script = ExtResource("1_cteb6")
+time_scaler = ExtResource("2_tiva3")
+crit_multiplier = 2
+metadata/_custom_type_script = "uid://cq6hw4pjyvu6q"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=44965247]
+self_modulate = Color(1, 0, 0, 1)
+position = Vector2(-4.7683716e-07, -4.7683716e-07)
+scale = Vector2(0.01917668, 0.018807977)
+texture = ExtResource("3_skcih")
+
+[node name="HitboxArea" type="Area2D" parent="." unique_id=487062460 groups=["shuriken"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxArea" unique_id=144308224]
+position = Vector2(-1.9073486e-06, 0.11111069)
+scale = Vector2(1.0000001, 1.0000001)
+shape = SubResource("CircleShape2D_msjk4")
+
+[connection signal="area_entered" from="HitboxArea" to="." method="_on_hitbox_area_area_entered"]
