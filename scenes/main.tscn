@@ -10,6 +10,17 @@
 [ext_resource type="Resource" uid="uid://dme2alq1w1hwu" path="res://Resources/waves/test_wave.tres" id="8_choun"]
 [ext_resource type="Script" uid="uid://wbcb6tgmlxnp" path="res://Resources/EnemyStats.gd" id="9_85g3d"]
 
+[sub_resource type="Resource" id="Resource_85g3d"]
+resource_local_to_scene = true
+script = ExtResource("9_85g3d")
+hp = 100
+atk_dmg = 20
+max_speed = 80
+curr_speed = 80
+knockback_resistance = 1.0
+cost = 100
+metadata/_custom_type_script = "uid://wbcb6tgmlxnp"
+
 [sub_resource type="Resource" id="Resource_xrivr"]
 script = ExtResource("9_85g3d")
 hp = 200
@@ -62,6 +73,7 @@ waves = Array[ExtResource("7_85g3d")]([ExtResource("8_choun"), null, null])
 process_mode = 4
 visible = false
 position = Vector2(-800, -272)
+stats = SubResource("Resource_85g3d")
 
 [node name="PolarBear" parent="EnemySpawner" unique_id=344848122 instance=ExtResource("5_o6xl0")]
 process_mode = 4
