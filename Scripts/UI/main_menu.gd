@@ -1,5 +1,8 @@
 extends CanvasLayer
 
+@export var combat_stats: CombatStats
+@export var time_scaler: TimeScaler
+
 @export var start_scene_path : String
 @onready var options_panel = $OptionsPanel
 @onready var start: Button = $MenuScreen/ButtonManager/Start
@@ -18,6 +21,7 @@ func _on_options_visibility_changed() -> void:
 	quit.disabled = is_visible
 
 func _on_start_pressed() -> void:
+	reset_progress()
 	AudioManager.stop_music()
 	var game_stream = preload("res://Audio/CriticalTheme.wav")
 	AudioManager.play_music(game_stream)
@@ -28,3 +32,18 @@ func _on_options_pressed() -> void:
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
+	
+func reset_progress():
+	time_scaler.time_scale = 1.0
+	
+	combat_stats.current_hp = 100
+
+	combat_stats.current_number_of_shurikens = 4
+	combat_stats.fire_rate = 0.5
+	combat_stats.current_speed = 275
+	combat_stats.crit_chance = 5
+	combat_stats.range = 300
+
+	combat_stats.max_hp = 100
+	combat_stats.damage = 5
+	combat_stats.shuriken_speed = 200

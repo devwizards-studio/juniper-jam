@@ -4,9 +4,9 @@ var _master_bus : int
 var _music_bus : int
 var _sfx_bus : int
 
-var master_volume : float = 1.0
-var music_volume : float = 1.0
-var sfx_volume : float = 1.0
+var master_volume : float = 0.5
+var music_volume : float = 0.5
+var sfx_volume : float = 0.5
 var music_player: AudioStreamPlayer
 var music_player_menu: AudioStreamPlayer
 

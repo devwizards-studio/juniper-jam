@@ -9,4 +9,6 @@ wave_timer = NodePath("WaveTimer")
 [node name="WaveTimer" type="Timer" parent="." unique_id=1328154453]
 wait_time = 15.0
 
+[node name="IndicatorsParent" type="Node2D" parent="." unique_id=651583169]
+
 [connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]

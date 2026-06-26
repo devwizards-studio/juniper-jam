@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" uid="uid://bnu0tcrucla4a" path="res://Scripts/UI/main_menu.gd" id="1_yonvy"]
 [ext_resource type="Texture2D" uid="uid://cxvd3qp5cgaqj" path="res://Sprites/UI/Main Menu/menu.png" id="2_e2p27"]
+[ext_resource type="Resource" uid="uid://dael080ppeurw" path="res://Resources/combat/combat_stats.tres" id="2_um6dh"]
 [ext_resource type="Script" uid="uid://dow6oemof7unt" path="res://Scripts/UI/scene_switcher.gd" id="3_5jstl"]
+[ext_resource type="Resource" uid="uid://chj2sl4cv31tn" path="res://Resources/TimeScale/time_scaler.tres" id="3_mf7fl"]
 [ext_resource type="Texture2D" uid="uid://c7thascxoxp4g" path="res://Sprites/UI/Main Menu/play.png" id="4_ngj32"]
 [ext_resource type="PackedScene" uid="uid://bhm5xkhsb3n7c" path="res://scenes/UI/options_panel.tscn" id="4_tfcbk"]
 [ext_resource type="Texture2D" uid="uid://0iu873cuos4s" path="res://Sprites/UI/Main Menu/settings.png" id="5_bm8t2"]
@@ -10,6 +12,8 @@
 
 [node name="MainMenu" type="CanvasLayer" unique_id=1537268060]
 script = ExtResource("1_yonvy")
+combat_stats = ExtResource("2_um6dh")
+time_scaler = ExtResource("3_mf7fl")
 start_scene_path = "res://scenes/main.tscn"
 
 [node name="MenuScreen" type="TextureRect" parent="." unique_id=751604360]

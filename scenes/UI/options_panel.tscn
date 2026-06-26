@@ -124,7 +124,7 @@ offset_bottom = 164.0
 size_flags_vertical = 4
 max_value = 1.0
 step = 0.05
-value = 1.0
+value = 0.5
 
 [node name="MusicLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1920110103]
 layout_mode = 0
@@ -159,7 +159,7 @@ offset_right = 920.0
 offset_bottom = 243.0
 max_value = 1.0
 step = 0.05
-value = 1.0
+value = 0.5
 
 [node name="SfxLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1685028026]
 layout_mode = 1
@@ -199,7 +199,7 @@ offset_right = 912.0
 offset_bottom = 323.0
 max_value = 1.0
 step = 0.05
-value = 1.0
+value = 0.5
 
 [node name="Close" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1161007039]
 self_modulate = Color(1, 1, 1, 0)
