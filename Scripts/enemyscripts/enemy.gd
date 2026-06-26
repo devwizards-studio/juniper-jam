@@ -12,6 +12,9 @@ class_name Enemy
 var curr_hp: int
 
 func _ready() -> void:
+	health_bar.max_value = stats.hp
+	health_bar.value = stats.hp
+	
 	curr_hp = stats.hp
 
 func take_damage(dmg_val : int):

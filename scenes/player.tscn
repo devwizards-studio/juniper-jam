@@ -40,6 +40,7 @@
 [ext_resource type="Texture2D" uid="uid://bpiymk3qbcm7q" path="res://Sprites/MC/correctly scaled walking anims/back_walk2.png" id="27_hhpqf"]
 [ext_resource type="Script" uid="uid://cigp45vi54wg" path="res://Scripts/UI/player_camera.gd" id="28_hax0n"]
 [ext_resource type="PackedScene" uid="uid://cusigrw8dfas8" path="res://scenes/UI/PukeBar.tscn" id="31_t4otl"]
+[ext_resource type="PackedScene" uid="uid://tmhc6a0k2mc2" path="res://scenes/UI/HealthBar.tscn" id="41_2dvfe"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_13qdw"]
 animations = [{
@@ -179,12 +180,45 @@ point_count = 12
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_13qdw"]
 size = Vector2(125.00031, 428.12415)
 
+[sub_resource type="Animation" id="Animation_2dvfe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_qfm1y"]
 resource_name = "idle"
 
+[sub_resource type="Animation" id="Animation_giy8y"]
+resource_name = "invincibility"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fulsm"]
 _data = {
-&"idle": SubResource("Animation_qfm1y")
+&"RESET": SubResource("Animation_2dvfe"),
+&"idle": SubResource("Animation_qfm1y"),
+&"invincibility": SubResource("Animation_giy8y")
 }
 
 [node name="Player" type="CharacterBody2D" unique_id=1212704905 node_paths=PackedStringArray("sprite", "path2D", "pathFollow", "wave_enemy_position") groups=["player"]]
@@ -232,9 +266,20 @@ libraries/ = SubResource("AnimationLibrary_fulsm")
 wait_time = 3.0
 one_shot = true
 
+[node name="InvincibilityTimer" type="Timer" parent="." unique_id=1733474373]
+wait_time = 2.0
+one_shot = true
+
 [node name="ShurikenSpawner" parent="." unique_id=1000780227 instance=ExtResource("10_y4r1p")]
 radius = 2000.0
 horizontal_angle = 10.0
+
+[node name="HealthBar" parent="." unique_id=848823862 instance=ExtResource("41_2dvfe")]
+modulate = Color(9.241105e-06, 0.99898046, 1.540184e-06, 1)
+offset_left = -66.0
+offset_top = -112.0
+offset_right = 66.0
+offset_bottom = -95.0
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1861426023]
 script = ExtResource("11_jej6c")
@@ -289,10 +334,11 @@ script = ExtResource("11_d2wvv")
 all_upgrades = Array[ExtResource("13_fulsm")]([ExtResource("14_4r5pv"), ExtResource("15_60mlk"), ExtResource("16_i4ail"), ExtResource("17_a38lo"), ExtResource("18_4ni07")])
 
 [node name="MinigameTimer" type="Timer" parent="UI" unique_id=145489812]
-wait_time = 100.0
+wait_time = 5.0
 autostart = true
 ignore_time_scale = true
 
 [connection signal="body_entered" from="HitboxArea" to="." method="_on_hitbox_area_body_entered"]
 [connection signal="timeout" from="PukeTimer" to="." method="_on_puke_timer_timeout"]
+[connection signal="timeout" from="InvincibilityTimer" to="." method="_on_invincibility_timer_timeout"]
 [connection signal="timeout" from="UI/MinigameTimer" to="UI" method="_on_timer_timeout"]
