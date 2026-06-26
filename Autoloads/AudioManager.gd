@@ -13,10 +13,11 @@ func _ready() -> void:
 	music_player = AudioStreamPlayer.new()
 	music_player.bus = "Music"
 	add_child(music_player)
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	music_player.process_mode = Node.PROCESS_MODE_ALWAYS
 	_master_bus = AudioServer.get_bus_index("Master")
 	_music_bus  = AudioServer.get_bus_index("Music")
 	_sfx_bus    = AudioServer.get_bus_index("Sfx")
-	#music_player.play() 
 
 func set_master_volume(value: float) -> void:
 	master_volume = value

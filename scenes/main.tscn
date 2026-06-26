@@ -31,16 +31,17 @@ cost = 59
 metadata/_custom_type_script = "uid://wbcb6tgmlxnp"
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_sugp2"]
-vertices = PackedVector2Array(451.4297, 384.92188, 1057.6016, 548.85156, 83.171875, 535.1406, 308, 386.07813, 90.82031, 101.92969, 308, 249.17188, 1040.3672, 96.046875, 445.57813, 246.84375)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 2, 4, 5), PackedInt32Array(5, 4, 6, 7), PackedInt32Array(6, 1, 0, 7)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(81, 92, 73, 545, 1068, 559, 1050, 86), PackedVector2Array(318, 259, 436, 257, 441, 375, 318, 376), PackedVector2Array(638, 259, 754, 259, 758, 372, 642, 375)])
+vertices = PackedVector2Array(2745.4531, 1512.9609, -445.53125, 1503.0313, -377.4297, -2.1484375, 2663.5078, -52.828125)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-387, -12, -456, 1513, 2756, 1523, 2673, -63)])
 parsed_geometry_type = 1
 source_geometry_group_name = &"navigation"
 
 [node name="main" type="Node2D" unique_id=48790755]
 
 [node name="map" type="Sprite2D" parent="." unique_id=1309012133]
-position = Vector2(633, 384.99994)
+position = Vector2(1174, 738.00006)
+scale = Vector2(1.9286457, 1.9148148)
 texture = ExtResource("1_sugp2")
 
 [node name="Player" parent="." unique_id=1212704905 instance=ExtResource("1_o5qli")]
@@ -50,7 +51,7 @@ position = Vector2(591, 328)
 [node name="EnemySpawner" parent="." unique_id=1851903758 node_paths=PackedStringArray("player", "enemies", "cost_arr") instance=ExtResource("4_jyhfs")]
 player = NodePath("../Player")
 scenes = Array[PackedScene]([ExtResource("3_sugp2"), ExtResource("5_o6xl0"), ExtResource("6_tipki")])
-enemies = [NodePath(""), NodePath(""), NodePath("")]
+enemies = [null, null, null]
 cost_arr = {
 ExtResource("3_sugp2"): NodePath("HockJock"),
 ExtResource("5_o6xl0"): NodePath("PolarBear")

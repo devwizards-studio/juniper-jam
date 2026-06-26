@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://c5fwn3b52huqf"]
 
 [ext_resource type="Script" uid="uid://cq6hw4pjyvu6q" path="res://Scripts/combat/shuriken.gd" id="1_1gmps"]
-[ext_resource type="Texture2D" uid="uid://kehe566fjrhy" path="res://Placeholders/icon.svg" id="2_b611m"]
 [ext_resource type="Resource" uid="uid://chj2sl4cv31tn" path="res://Resources/TimeScale/time_scaler.tres" id="2_kp4el"]
+[ext_resource type="Texture2D" uid="uid://cfbgj3ai28c7r" path="res://Sprites/MC/shuriken.png" id="3_kp4el"]
 
 [node name="Shuriken" type="Node2D" unique_id=1376009305]
 script = ExtResource("1_1gmps")
 time_scaler = ExtResource("2_kp4el")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1168328905]
-position = Vector2(-3.8146973e-06, -0.9999962)
-scale = Vector2(0.171875, 0.1484375)
-texture = ExtResource("2_b611m")
+position = Vector2(-4.7683716e-07, -1.0000005)
+scale = Vector2(0.01917668, 0.018807977)
+texture = ExtResource("3_kp4el")

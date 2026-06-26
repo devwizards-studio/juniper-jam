@@ -1,6 +1,8 @@
 extends TextureRect
 class_name PukeBar
 
+signal game_over
+
 const PUKE_BAR_EMPTY = preload("res://Sprites/UI/PukeBar/puke_bar_empty.png")
 const PUKE_BAR_1 = preload("res://Sprites/UI/PukeBar/puke_bar_1.png")
 const PUKE_BAR_2 = preload("res://Sprites/UI/PukeBar/puke_bar_2.png")
@@ -20,8 +22,8 @@ func add_puke_point():
 	puke_counter += 1
 	texture = sprites_list[puke_counter]
 	if puke_counter == puke_counter_size:
-		empty_bar()
 		puke_bar_filled.emit()
+		game_over.emit()
 		
 func empty_bar():
 	while puke_counter > 0:
