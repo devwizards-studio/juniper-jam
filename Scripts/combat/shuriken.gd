@@ -2,6 +2,7 @@ extends Node2D
 class_name Shuriken
 
 @export var time_scaler: TimeScaler
+@export var crit_multiplier: int = 1
 
 var move_direction: Vector2
 var start_position: Vector2

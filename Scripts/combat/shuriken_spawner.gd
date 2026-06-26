@@ -2,6 +2,7 @@ extends Node2D
 class_name ShurikenSpawner
 
 const SHURIKEN = preload("res://scenes/combat/shuriken.tscn")
+const CRIT_SHURIKEN = preload("res://scenes/combat/crit_shuriken.tscn")
 
 @export var combat_stats: CombatStats
 @export var time_scaler: TimeScaler
@@ -19,14 +20,19 @@ const SHURIKEN = preload("res://scenes/combat/shuriken.tscn")
 
 var is_puking: bool = false
 var is_in_minigame: bool = false
+var rng = RandomNumberGenerator.new()
+
+func _ready() -> void:
+	timer.wait_time = combat_stats.fire_rate
+	timer.start()
 
 func _on_timer_timeout() -> void:
-	#timer.wait_time = combat_stats.fire_rate / time_scaler.time_scale
+	timer.wait_time = combat_stats.fire_rate
 	if !is_puking and !is_in_minigame:
 		spawn_shurikens()
 	
 func spawn_shurikens():
-	var start_point = position
+	var start_point = global_position # era position, dar am schimbat ca sa se miste odata cu playerul
 	var horizontal_angle_spacing = 360.0 / combat_stats.current_number_of_shurikens;
 	var horizontal_wiggle_modifier = horizontal_wiggle_size * sin(wiggle_speed * Time.get_ticks_msec())
 	
@@ -37,8 +43,8 @@ func spawn_shurikens():
 		var new_position_vector = Vector2(shuriken_dir_x_position, shuriken_dir_y_position)
 		var shuriken_direction = (new_position_vector - start_point).normalized()
 		
-		var new_shuriken = SHURIKEN.instantiate()
-		new_shuriken.position = start_point
+		var new_shuriken = pick_random_shuriken()
+		new_shuriken.global_position = start_point # era position, dar am schimbat ca sa se miste odata cu playerul
 		new_shuriken.start_position = global_position
 		new_shuriken.radius = radius
 		
@@ -51,9 +57,16 @@ func spawn_shurikens():
 		new_shuriken.wiggle_speed = wiggle_speed
 		new_shuriken.horizontal_wiggle_size = horizontal_wiggle_size
 		
-		add_child(new_shuriken)
+		get_parent().get_parent().add_child(new_shuriken)
 	
 		if horizontal_angle >= 360.0:
 			horizontal_angle -= 360.0
 			
 	horizontal_angle += horizontal_angle_step
+	
+func pick_random_shuriken() -> Shuriken:
+	var picked_number = rng.randi_range(1,100)
+	if picked_number <= combat_stats.crit_chance:
+		return CRIT_SHURIKEN.instantiate()
+	else:
+		return SHURIKEN.instantiate()

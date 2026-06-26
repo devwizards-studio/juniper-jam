@@ -10,3 +10,4 @@ const MAX_NUMBER_OF_SHURIKENS : int = 8
 @export var shuriken_speed : float = 200
 @export var fire_rate : float = 0.2
 @export var max_speed : int = 275
+@export var crit_chance : int = 5

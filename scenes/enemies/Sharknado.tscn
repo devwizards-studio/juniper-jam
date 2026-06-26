@@ -125,12 +125,11 @@ shape = SubResource("CapsuleShape2D_7gwn4")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=900987454]
 
-[node name="HealthBar" parent="." unique_id=848823862 node_paths=PackedStringArray("enemy") instance=ExtResource("9_cmm8x")]
+[node name="HealthBar" parent="." unique_id=848823862 instance=ExtResource("9_cmm8x")]
 offset_left = -225.0
 offset_top = 456.25
 offset_right = 249.99997
 offset_bottom = 511.80554
-enemy = NodePath("..")
 
 [node name="hitFlashAnim" type="AnimationPlayer" parent="." unique_id=983542349]
 libraries/ = SubResource("AnimationLibrary_3j6o6")
