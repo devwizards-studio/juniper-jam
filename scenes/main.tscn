@@ -13,6 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://0nloaxjmn7l2" path="res://UI/GameOver.tscn" id="11_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://gcbk1f2nbtgi" path="res://UI/leaderboard.tscn" id="12_eb6dy"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xrivr"]
+size = Vector2(1949.5239, 160.69818)
+
 [sub_resource type="Resource" id="Resource_eb6dy"]
 resource_local_to_scene = true
 script = ExtResource("9_85g3d")
@@ -65,8 +68,27 @@ game_over_screen = NodePath("Control")
 
 [node name="map" type="Sprite2D" parent="." unique_id=1309012133]
 position = Vector2(1174, 738.00006)
-scale = Vector2(1.9286457, 1.9148148)
+scale = Vector2(2.1, 2.084)
 texture = ExtResource("1_sugp2")
+
+[node name="Area2D" type="StaticBody2D" parent="map" unique_id=1758187062]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/Area2D" unique_id=327081273]
+position = Vector2(5.238098, 465.66574)
+shape = SubResource("RectangleShape2D_xrivr")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="map/Area2D" unique_id=1923601408]
+position = Vector2(-10.952393, -500.05035)
+shape = SubResource("RectangleShape2D_xrivr")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="map/Area2D" unique_id=1818932945]
+position = Vector2(-770.47626, -470.2495)
+polygon = PackedVector2Array(-18.09517, 82.533585, -43.809464, 122.84068, -63.80945, 679.9424, -57.14279, 776.3915, -28.571365, 836.3723, 11.904831, 874.28015, -211.42853, 910.74854, -200.95233, 7.197693, 52.381027, 31.190018)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="map/Area2D" unique_id=1271425070]
+position = Vector2(781.4285, 442.41837)
+rotation = -3.1415925
+polygon = PackedVector2Array(-6.1904297, 77.73511, -41.904785, 123.320496, -44.285645, 328.21497, -38.57129, 651.6315, -26.666504, 784.5489, 40.000122, 875.23987, -175.71411, 910.7485, -202.38098, -18.234192, 5.238159, -23.032654, 45.23816, 53.742798)
 
 [node name="Player" parent="." unique_id=1212704905 instance=ExtResource("1_o5qli")]
 z_index = 1
@@ -100,6 +122,7 @@ position = Vector2(-826, -317)
 stats = SubResource("Resource_13qdw")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=2100808560]
+visible = false
 position = Vector2(19, -4)
 navigation_polygon = SubResource("NavigationPolygon_sugp2")
 
