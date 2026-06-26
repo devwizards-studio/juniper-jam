@@ -16,6 +16,9 @@ var knockback_timer : float = 0.0
 signal send_points(points : int)
 
 func _ready() -> void:
+	health_bar.max_value = stats.hp
+	health_bar.value = stats.hp
+	
 	curr_hp = stats.hp
 
 func take_damage(dmg_val : int):

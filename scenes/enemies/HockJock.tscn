@@ -116,12 +116,11 @@ animation = &"walk_right"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=283707622]
 shape = SubResource("CircleShape2D_ifpyu")
 
-[node name="HealthBar" parent="." unique_id=848823862 node_paths=PackedStringArray("enemy") instance=ExtResource("9_vlx8m")]
+[node name="HealthBar" parent="." unique_id=848823862 instance=ExtResource("9_vlx8m")]
 offset_left = -422.2222
 offset_top = 400.0
 offset_right = 411.11118
 offset_bottom = 455.55554
-enemy = NodePath("..")
 
 [node name="hitFlashAnim" type="AnimationPlayer" parent="." unique_id=1783971406]
 libraries/ = SubResource("AnimationLibrary_thuch")
