@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://0nloaxjmn7l2"]
 
 [ext_resource type="Script" uid="uid://cl2mmipffyiov" path="res://UI/ui scripts/game_over.gd" id="1_kjexa"]
+[ext_resource type="Texture2D" uid="uid://dk7g78fvg81s7" path="res://Sprites/UI/GameOver/gameover.png" id="2_vjbsa"]
 
 [node name="Control" type="Control" unique_id=1521952163 node_paths=PackedStringArray("http_request", "submit", "score_label")]
 layout_mode = 3
@@ -35,16 +36,6 @@ text = "See Leaderboard
 layout_mode = 2
 text = "Quit
 "
-
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1052274777]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.4229891, 0.17080906, 0.30009356, 1)
 
 [node name="score_label" type="Label" parent="." unique_id=1773736262]
 layout_mode = 0
@@ -100,6 +91,14 @@ offset_left = 894.0
 offset_top = 568.0
 offset_right = 962.5
 offset_bottom = 599.0
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=726152683]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 318.0
+grow_horizontal = 2
+texture = ExtResource("2_vjbsa")
 
 [connection signal="pressed" from="HBoxContainer/submit" to="." method="_on_submit_pressed"]
 [connection signal="pressed" from="HBoxContainer/to leaderboard" to="." method="_on_to_leaderboard_pressed"]

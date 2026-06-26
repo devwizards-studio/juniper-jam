@@ -242,6 +242,11 @@ scale = Vector2(0.07039983, 0.051200133)
 shape = SubResource("RectangleShape2D_xrivr")
 
 [node name="PlayerCamera" type="Camera2D" parent="." unique_id=1103006166]
+limit_left = -830
+limit_top = -360
+limit_right = 3160
+limit_bottom = 1845
+editor_draw_limits = true
 script = ExtResource("28_hax0n")
 
 [node name="Path2D" type="Path2D" parent="." unique_id=1867554208]
