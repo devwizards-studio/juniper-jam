@@ -69,7 +69,7 @@ func movement(delta: float):
 		sprite.play("idle")
 	
 	var lerp_weight = delta * (acceleration if input else friction)
-	velocity = lerp(velocity, input * stats.max_speed, lerp_weight) * time_scaler.time_scale
+	velocity = lerp(velocity, input * stats.current_speed, lerp_weight) * time_scaler.time_scale
 	move_and_slide()
 
 func take_damage(dmg_val : int):

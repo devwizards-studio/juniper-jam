@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_78jgg")
-title = "Attack Speed"
+title = "Shuriken Speed UP!"
 description = "SHING SHING SHING"
 stat = "shuriken_speed"
 value = 1.0

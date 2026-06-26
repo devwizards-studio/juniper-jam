@@ -9,14 +9,11 @@ const CRIT_SHURIKEN = preload("res://scenes/combat/crit_shuriken.tscn")
 
 @onready var timer: Timer = $Timer
 
-@export var radius: float = 500.0
 @export var horizontal_angle: float = 0
 @export var horizontal_angle_step: float = 10
 
 @export var horizontal_wiggle_size: float = 0
 @export var wiggle_speed: float = 0
-
-@export var acceleration: float = 0
 
 var is_puking: bool = false
 var is_in_minigame: bool = false
@@ -37,8 +34,8 @@ func spawn_shurikens():
 	var horizontal_wiggle_modifier = horizontal_wiggle_size * sin(wiggle_speed * Time.get_ticks_msec())
 	
 	for i in range(0, combat_stats.current_number_of_shurikens):
-		var shuriken_dir_x_position = start_point.x + cos(((horizontal_angle + i * horizontal_angle_spacing + horizontal_wiggle_modifier) * PI) / 180.0) * radius
-		var shuriken_dir_y_position = start_point.y + sin(((horizontal_angle + i * horizontal_angle_spacing + horizontal_wiggle_modifier) * PI) / 180.0) * radius
+		var shuriken_dir_x_position = start_point.x + cos(((horizontal_angle + i * horizontal_angle_spacing + horizontal_wiggle_modifier) * PI) / 180.0) * combat_stats.range
+		var shuriken_dir_y_position = start_point.y + sin(((horizontal_angle + i * horizontal_angle_spacing + horizontal_wiggle_modifier) * PI) / 180.0) * combat_stats.range
 		
 		var new_position_vector = Vector2(shuriken_dir_x_position, shuriken_dir_y_position)
 		var shuriken_direction = (new_position_vector - start_point).normalized()
@@ -46,10 +43,7 @@ func spawn_shurikens():
 		var new_shuriken = pick_random_shuriken()
 		new_shuriken.global_position = start_point # era position, dar am schimbat ca sa se miste odata cu playerul
 		new_shuriken.start_position = global_position
-		new_shuriken.radius = radius
 		
-		new_shuriken.move_speed = combat_stats.shuriken_speed
-		new_shuriken.acceleration = acceleration
 		new_shuriken.move_direction = shuriken_direction
 
 		new_shuriken.horizontal_angle = horizontal_angle

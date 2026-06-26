@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://mexdtnq35m4t"]
+
+[ext_resource type="Script" uid="uid://cgpc4ly5hs6ki" path="res://Scripts/levelup/upgrade.gd" id="1_4u44a"]
+
+[resource]
+script = ExtResource("1_4u44a")
+title = "Crit Chance UP!"
+description = "Increases chances of shooting a Crit Shuriken"
+stat = "crit_chance"
+value = 5.0
+metadata/_custom_type_script = "uid://cgpc4ly5hs6ki"

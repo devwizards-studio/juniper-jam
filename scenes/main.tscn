@@ -77,7 +77,7 @@ position = Vector2(1174, 738.00006)
 scale = Vector2(2.1, 2.084)
 texture = ExtResource("1_sugp2")
 
-[node name="Area2D" type="StaticBody2D" parent="map" unique_id=1758187062]
+[node name="Area2D" type="StaticBody2D" parent="map" unique_id=1758187062 groups=["wall"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="map/Area2D" unique_id=327081273]
 position = Vector2(5.238098, 465.66574)

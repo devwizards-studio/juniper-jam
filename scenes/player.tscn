@@ -15,19 +15,13 @@
 [ext_resource type="Script" uid="uid://xutvfcxb03py" path="res://Scripts/levelup/options.gd" id="11_d2wvv"]
 [ext_resource type="Script" uid="uid://cpfh0xv0nbsh3" path="res://Scripts/UI/player_canvas.gd" id="11_jej6c"]
 [ext_resource type="Texture2D" uid="uid://bi1hp2whmmijc" path="res://Sprites/MC/re-lutz/lutz2.png" id="12_2dvfe"]
-[ext_resource type="Script" uid="uid://cgpc4ly5hs6ki" path="res://Scripts/levelup/upgrade.gd" id="13_fulsm"]
 [ext_resource type="Texture2D" uid="uid://ba6wk11k4irms" path="res://Sprites/MC/re-lutz/lutz3.png" id="13_giy8y"]
-[ext_resource type="Resource" uid="uid://b4f1r11mp6aai" path="res://Resources/combat/upgrade_dmg.tres" id="14_4r5pv"]
 [ext_resource type="Texture2D" uid="uid://ckp66ylbtfcld" path="res://Sprites/MC/re-lutz/lutz4.png" id="14_fdfoy"]
-[ext_resource type="Resource" uid="uid://dtharmkcltyig" path="res://Resources/combat/upgrade_hp.tres" id="15_60mlk"]
 [ext_resource type="Texture2D" uid="uid://c5sru45tkybxx" path="res://Sprites/MC/re-lutz/lutz1.png" id="15_hhpqf"]
 [ext_resource type="Texture2D" uid="uid://bs1qmekyqn13o" path="res://Sprites/MC/puke/throw_up_1.png" id="16_cs1tg"]
 [ext_resource type="Texture2D" uid="uid://bn54p6uvh3qso" path="res://Sprites/MC/re-low_spin/front_pose_2.png" id="16_g5jhy"]
-[ext_resource type="Resource" uid="uid://bo4irddnqjwup" path="res://Resources/combat/upgrade_shurikens.tres" id="16_i4ail"]
 [ext_resource type="Texture2D" uid="uid://c36a72murr8my" path="res://Sprites/MC/puke/throw_up_2.png" id="17_2dvfe"]
-[ext_resource type="Resource" uid="uid://dgd0p2pl356w3" path="res://Resources/combat/upgrade_shuriken_speed.tres" id="17_a38lo"]
 [ext_resource type="Texture2D" uid="uid://bimjl1rql1xk4" path="res://Sprites/MC/re-low_spin/left_pose.png" id="17_holxr"]
-[ext_resource type="Resource" uid="uid://dfcl3vnvrxjen" path="res://Resources/combat/upgrade_speed.tres" id="18_4ni07"]
 [ext_resource type="Texture2D" uid="uid://dgsahfowsqbkt" path="res://Sprites/MC/re-low_spin/back_pose.png" id="18_mx1m4"]
 [ext_resource type="Texture2D" uid="uid://bc1rmlbh3o1k0" path="res://Sprites/MC/re-low_spin/right_pose.png" id="19_4gjji"]
 [ext_resource type="Texture2D" uid="uid://bi3y5hbwc8ce5" path="res://Sprites/MC/correctly scaled walking anims/idle_front.png" id="20_hax0n"]
@@ -215,16 +209,13 @@ _data = {
 &"invincibility": SubResource("Animation_giy8y")
 }
 
-[node name="Player" type="CharacterBody2D" unique_id=1212704905 node_paths=PackedStringArray("sprite", "hit_timer", "hurt_col", "path2D", "pathFollow", "wave_enemy_position") groups=["player"]]
+[node name="Player" type="CharacterBody2D" unique_id=1212704905 node_paths=PackedStringArray("sprite", "hit_timer", "hurt_col") groups=["player"]]
 script = ExtResource("1_g2els")
 time_scaler = ExtResource("2_60mlk")
 stats = ExtResource("2_4r5pv")
 sprite = NodePath("AnimatedSprite2D")
 hit_timer = NodePath("HurttboxArea/Timer")
 hurt_col = NodePath("HurttboxArea/CollisionShape2D")
-path2D = NodePath("")
-pathFollow = NodePath("")
-wave_enemy_position = NodePath("")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1560810833]
 scale = Vector2(0.16, 0.16)
@@ -263,7 +254,6 @@ wait_time = 3.0
 one_shot = true
 
 [node name="ShurikenSpawner" parent="." unique_id=1000780227 instance=ExtResource("10_y4r1p")]
-radius = 2000.0
 horizontal_angle = 10.0
 
 [node name="HealthBar" parent="." unique_id=848823862 instance=ExtResource("41_2dvfe")]
@@ -323,10 +313,10 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 100
 script = ExtResource("11_d2wvv")
-all_upgrades = Array[ExtResource("13_fulsm")]([ExtResource("14_4r5pv"), ExtResource("15_60mlk"), ExtResource("16_i4ail"), ExtResource("17_a38lo"), ExtResource("18_4ni07")])
+combat_stats = ExtResource("2_4r5pv")
 
 [node name="MinigameTimer" type="Timer" parent="UI" unique_id=145489812]
-wait_time = 100.0
+wait_time = 5.0
 autostart = true
 ignore_time_scale = true
 

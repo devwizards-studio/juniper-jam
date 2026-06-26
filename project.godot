@@ -32,6 +32,7 @@ player=""
 enemies=""
 shuriken=""
 enemy_attack=""
+wall=""
 
 [input]
 

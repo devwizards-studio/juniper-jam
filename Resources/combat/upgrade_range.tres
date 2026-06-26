@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://cbrpstto3nc10"]
+
+[ext_resource type="Script" uid="uid://cgpc4ly5hs6ki" path="res://Scripts/levelup/upgrade.gd" id="1_qsukl"]
+
+[resource]
+script = ExtResource("1_qsukl")
+title = "Range UP!"
+description = "Your shurikens now travel more"
+stat = "range"
+value = 50.0
+metadata/_custom_type_script = "uid://cgpc4ly5hs6ki"

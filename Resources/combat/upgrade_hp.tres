@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_6cl1i")
-title = "Health Up"
+title = "Health UP!"
 description = "Mundo goes where he pleases"
 stat = "max_hp"
 value = 5.0

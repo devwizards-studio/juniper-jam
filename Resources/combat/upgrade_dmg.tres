@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_jnjya")
-title = "Dmg up"
+title = "Dmg UP!"
 description = "Get more dmg"
 stat = "damage"
 value = 1.0
