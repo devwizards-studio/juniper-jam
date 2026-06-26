@@ -13,7 +13,18 @@ func _physics_process(delta: float) -> void:
 	var direction = global_position.direction_to(player.global_position)
 	velocity = direction * stats.curr_speed * time_scaler.time_scale
 	update_animation()
+
+	#knockback:
+	if knockback_timer > 0.0: # the knockback is active
+		velocity = knockback
+		knockback_timer -= delta
+		if knockback_timer <= 0.0: # knockback gone
+			knockback = Vector2.ZERO
 	move_and_slide()
+	
+
+	
+
 
 func update_animation() -> void:
 	if not player:
@@ -26,6 +37,10 @@ func update_animation() -> void:
 		if animated_sprite.animation != "walk_right":
 			animated_sprite.play("walk_right")
 
+#actually a hurtbox
 func _on_hitbox_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("shuriken"):
 		take_damage(player_combat_stats.damage)
+		
+		var knockback_direction = (global_position - player.global_position).normalized()
+		apply_knockback(knockback_direction, 100.0, 0.12)

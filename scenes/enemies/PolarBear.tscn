@@ -2,14 +2,25 @@
 
 [ext_resource type="Script" uid="uid://d2j2bsvhkv6q1" path="res://Scripts/enemyscripts/polar_bear.gd" id="1_48jrj"]
 [ext_resource type="Resource" uid="uid://chj2sl4cv31tn" path="res://Resources/TimeScale/time_scaler.tres" id="2_cajnv"]
-[ext_resource type="Resource" uid="uid://bwo8fc8f2lunr" path="res://Resources/test.tres" id="3_1ank7"]
 [ext_resource type="Resource" uid="uid://dael080ppeurw" path="res://Resources/combat/combat_stats.tres" id="3_2fnbs"]
+[ext_resource type="Script" uid="uid://wbcb6tgmlxnp" path="res://Resources/EnemyStats.gd" id="3_33t3x"]
 [ext_resource type="Shader" uid="uid://cx0fddkbj7hwc" path="res://Shaders/hit.gdshader" id="5_7gwn4"]
 [ext_resource type="Texture2D" uid="uid://csybx3cwx1wej" path="res://Sprites/Enemies/re-bear/bear_left_1.png" id="6_7gwn4"]
 [ext_resource type="Texture2D" uid="uid://deioru4jc5gm8" path="res://Sprites/Enemies/re-bear/bear_left_2.png" id="7_33t3x"]
 [ext_resource type="Texture2D" uid="uid://bmjut3cim3te0" path="res://Sprites/Enemies/re-bear/bear_right1.png" id="8_7gwn4"]
 [ext_resource type="PackedScene" uid="uid://tmhc6a0k2mc2" path="res://scenes/UI/HealthBar.tscn" id="9_5fobk"]
 [ext_resource type="Texture2D" uid="uid://bc0jc2cevdhse" path="res://Sprites/Enemies/re-bear/bear_right_2.png" id="9_33t3x"]
+
+[sub_resource type="Resource" id="Resource_a6v2h"]
+script = ExtResource("3_33t3x")
+hp = 100
+atk_dmg = 50
+max_speed = 68
+curr_speed = 68
+knockback_resistance = 1.0
+cost = 10
+score_points = 500
+metadata/_custom_type_script = "uid://wbcb6tgmlxnp"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xrivr"]
 resource_local_to_scene = true
@@ -43,7 +54,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ifpyu"]
-radius = 381.30124
+radius = 243.35616
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cajnv"]
 radius = 493.4486
@@ -86,11 +97,14 @@ _data = {
 &"hit": SubResource("Animation_3tegm")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_xrivr"]
+radius = 290.3063
+
 [node name="PolarBear" type="CharacterBody2D" unique_id=344848122 node_paths=PackedStringArray("anim_player") groups=["enemies"]]
 scale = Vector2(0.3, 0.3)
 script = ExtResource("1_48jrj")
 time_scaler = ExtResource("2_cajnv")
-stats = ExtResource("3_1ank7")
+stats = SubResource("Resource_a6v2h")
 player_combat_stats = ExtResource("3_2fnbs")
 anim_player = NodePath("hitFlashAnim")
 
@@ -98,7 +112,6 @@ anim_player = NodePath("hitFlashAnim")
 material = SubResource("ShaderMaterial_xrivr")
 sprite_frames = SubResource("SpriteFrames_ifpyu")
 animation = &"walk_right"
-frame_progress = 0.39658287
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1531058405]
 shape = SubResource("CircleShape2D_ifpyu")
@@ -121,5 +134,14 @@ enemy = NodePath("..")
 
 [node name="hitFlashAnim" type="AnimationPlayer" parent="." unique_id=1379799373]
 libraries/ = SubResource("AnimationLibrary_33t3x")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1641839884 groups=["enemy_attack"]]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=817007898]
+position = Vector2(0, -8.34465e-06)
+scale = Vector2(1.0000001, 1.0000001)
+shape = SubResource("CircleShape2D_xrivr")
 
 [connection signal="area_entered" from="HitboxArea" to="." method="_on_hitbox_area_area_entered"]

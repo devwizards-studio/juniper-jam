@@ -2,15 +2,15 @@
 
 [ext_resource type="Script" uid="uid://dpiunma7v8ktc" path="res://UI/ui scripts/leaderboard.gd" id="1_27m2f"]
 
-[node name="leaderboard" type="Control" unique_id=1525802796 node_paths=PackedStringArray("http_request", "vbox")]
+[node name="leaderboard" type="Control" unique_id=1525802796 node_paths=PackedStringArray("vbox")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_vertical = 4
 script = ExtResource("1_27m2f")
-http_request = NodePath("HTTPRequest")
 vbox = NodePath("VBoxContainer")
 
 [node name="Label" type="Label" parent="." unique_id=1086147818]
@@ -37,10 +37,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="VBoxContainer" unique_id=839055892]
+visible = false
 layout_mode = 2
 text = "test: 
 "
-
-[node name="HTTPRequest" type="HTTPRequest" parent="." unique_id=327202084]
-
-[connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]

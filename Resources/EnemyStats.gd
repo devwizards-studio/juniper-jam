@@ -9,3 +9,4 @@ class_name EnemyStats
 @export var knockback_resistance : float
 
 @export var cost : int 
+@export var score_points : int

@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://tmhc6a0k2mc2" path="res://scenes/UI/HealthBar.tscn" id="9_vlx8m"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8mauw"]
-radius = 333.5184
+radius = 422.36835
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xrivr"]
 resource_local_to_scene = true
@@ -86,6 +86,9 @@ _data = {
 &"hit": SubResource("Animation_3tegm")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xrivr"]
+size = Vector2(458.33328, 527.7777)
+
 [node name="HockJock" type="CharacterBody2D" unique_id=1652384883 node_paths=PackedStringArray("anim_player") groups=["enemies"]]
 scale = Vector2(0.18, 0.18)
 motion_mode = 1
@@ -95,10 +98,10 @@ stats = ExtResource("2_ixy7k")
 player_combat_stats = ExtResource("4_bdawo")
 anim_player = NodePath("hitFlashAnim")
 
-[node name="HitboxArea" type="Area2D" parent="." unique_id=1630271514 groups=["enemies"]]
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1630271514 groups=["enemies"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxArea" unique_id=1626332248]
-position = Vector2(-1.9073486e-06, 11.111111)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1626332248]
+position = Vector2(-27.575, 43.105)
 scale = Vector2(1.0000001, 1.0000001)
 shape = SubResource("CircleShape2D_8mauw")
 
@@ -123,4 +126,12 @@ enemy = NodePath("..")
 [node name="hitFlashAnim" type="AnimationPlayer" parent="." unique_id=1783971406]
 libraries/ = SubResource("AnimationLibrary_thuch")
 
-[connection signal="area_entered" from="HitboxArea" to="." method="_on_hitbox_area_area_entered"]
+[node name="Hitbox" type="Area2D" parent="." unique_id=1132287840 groups=["enemy_attack"]]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=373026628]
+scale = Vector2(1.0000001, 1.0000001)
+shape = SubResource("RectangleShape2D_xrivr")
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hitbox_area_area_entered"]

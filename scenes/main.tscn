@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://c8w6xvce4f4to"]
 
+[ext_resource type="Script" uid="uid://1eov2s3lee7y" path="res://Scripts/main.gd" id="1_choun"]
 [ext_resource type="PackedScene" uid="uid://dme8v6evgtrnx" path="res://scenes/player.tscn" id="1_o5qli"]
 [ext_resource type="Texture2D" uid="uid://8h7qplenuofu" path="res://Sprites/patinoar.png" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://csmcj43oins0r" path="res://scenes/enemies/HockJock.tscn" id="3_sugp2"]
@@ -9,6 +10,20 @@
 [ext_resource type="Script" uid="uid://co864wqb3y32l" path="res://Resources/waves/wave_info.gd" id="7_85g3d"]
 [ext_resource type="Resource" uid="uid://dme2alq1w1hwu" path="res://Resources/waves/test_wave.tres" id="8_choun"]
 [ext_resource type="Script" uid="uid://wbcb6tgmlxnp" path="res://Resources/EnemyStats.gd" id="9_85g3d"]
+[ext_resource type="PackedScene" uid="uid://0nloaxjmn7l2" path="res://UI/GameOver.tscn" id="11_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://gcbk1f2nbtgi" path="res://UI/leaderboard.tscn" id="12_eb6dy"]
+
+[sub_resource type="Resource" id="Resource_eb6dy"]
+resource_local_to_scene = true
+script = ExtResource("9_85g3d")
+hp = 100
+atk_dmg = 20
+max_speed = 80
+curr_speed = 80
+knockback_resistance = 1.0
+cost = 1
+score_points = 200
+metadata/_custom_type_script = "uid://wbcb6tgmlxnp"
 
 [sub_resource type="Resource" id="Resource_xrivr"]
 script = ExtResource("9_85g3d")
@@ -17,7 +32,8 @@ atk_dmg = 50
 max_speed = 50
 curr_speed = 50
 knockback_resistance = 1.0
-cost = 30
+cost = 6
+score_points = 500
 metadata/_custom_type_script = "uid://wbcb6tgmlxnp"
 
 [sub_resource type="Resource" id="Resource_13qdw"]
@@ -27,7 +43,8 @@ atk_dmg = 100
 max_speed = 69
 curr_speed = 69
 knockback_resistance = 1.0
-cost = 5
+cost = 10
+score_points = 1000
 metadata/_custom_type_script = "uid://wbcb6tgmlxnp"
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_sugp2"]
@@ -37,7 +54,14 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-387, -12, -456, 1513, 
 parsed_geometry_type = 1
 source_geometry_group_name = &"navigation"
 
-[node name="main" type="Node2D" unique_id=48790755]
+[node name="main" type="Node2D" unique_id=48790755 node_paths=PackedStringArray("HockJock_model", "PolarBear_model", "Sharknado_model", "enemy_spawner", "game_over_screen")]
+script = ExtResource("1_choun")
+HockJock_model = NodePath("EnemySpawner/HockJock")
+PolarBear_model = NodePath("EnemySpawner/PolarBear")
+Sharknado_model = NodePath("EnemySpawner/Sharknado")
+enemy_spawner = NodePath("EnemySpawner")
+game_over_path = "res://UI/GameOver.tscn"
+game_over_screen = NodePath("Control")
 
 [node name="map" type="Sprite2D" parent="." unique_id=1309012133]
 position = Vector2(1174, 738.00006)
@@ -62,6 +86,7 @@ waves = Array[ExtResource("7_85g3d")]([ExtResource("8_choun"), null, null])
 process_mode = 4
 visible = false
 position = Vector2(-800, -272)
+stats = SubResource("Resource_eb6dy")
 
 [node name="PolarBear" parent="EnemySpawner" unique_id=344848122 instance=ExtResource("5_o6xl0")]
 process_mode = 4
@@ -77,3 +102,17 @@ stats = SubResource("Resource_13qdw")
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=2100808560]
 position = Vector2(19, -4)
 navigation_polygon = SubResource("NavigationPolygon_sugp2")
+
+[node name="Control" parent="." unique_id=1521952163 node_paths=PackedStringArray("leaderboard") instance=ExtResource("11_ya4ey")]
+process_mode = 2
+visible = false
+leaderboard = NodePath("../leaderboard")
+
+[node name="leaderboard" parent="." unique_id=1525802796 instance=ExtResource("12_eb6dy")]
+process_mode = 2
+visible = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=833862260]
+
+[connection signal="game_lost" from="Player" to="." method="_on_player_game_lost"]
+[connection signal="wave_spawned" from="EnemySpawner" to="." method="_on_enemy_spawner_wave_spawned"]

@@ -12,6 +12,7 @@ var curr_wave : int = 0
 var curr_wave_val : int
 @export var spawn_interval : float = 5.0
 
+signal wave_spawned
 var rng : RandomNumberGenerator = RandomNumberGenerator.new()
 
 func _ready() -> void:
@@ -24,7 +25,8 @@ func generate_wave():
 	curr_wave_val = waves[0].wave_value * curr_wave
 	spawn_wave(curr_wave_val)
 	curr_wave += 1
-	waves[0].wave_duration *= 2
+	waves[0].wave_duration *= 1.2
+	
 	wave_timer.wait_time = waves[0].wave_duration
 	wave_timer.start()
 	print("DURATION UNTIL NEXT WAVE: ", wave_timer.wait_time)
@@ -51,6 +53,7 @@ func spawn_wave(val : int):
 	
 	for enemy in generated_enemies:
 		wave_spawn(enemy)
+	wave_spawned.emit()
 	#await get_tree().create_timer(waves[0].wave_duration).timeout
 
 func wave_spawn(enemy_scene : PackedScene):

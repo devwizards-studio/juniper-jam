@@ -168,7 +168,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xrivr"]
-size = Vector2(596.5924, 2480.4624)
+size = Vector2(376.4214, 1777.3392)
 
 [sub_resource type="Curve2D" id="Curve2D_g2els"]
 _data = {
@@ -177,7 +177,7 @@ _data = {
 point_count = 12
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_13qdw"]
-size = Vector2(125.00031, 428.12415)
+size = Vector2(79.545654, 317.1869)
 
 [sub_resource type="Animation" id="Animation_qfm1y"]
 resource_name = "idle"
@@ -187,11 +187,13 @@ _data = {
 &"idle": SubResource("Animation_qfm1y")
 }
 
-[node name="Player" type="CharacterBody2D" unique_id=1212704905 node_paths=PackedStringArray("sprite", "path2D", "pathFollow", "wave_enemy_position") groups=["player"]]
+[node name="Player" type="CharacterBody2D" unique_id=1212704905 node_paths=PackedStringArray("sprite", "hit_timer", "hurt_col", "path2D", "pathFollow", "wave_enemy_position") groups=["player"]]
 script = ExtResource("1_g2els")
 time_scaler = ExtResource("2_60mlk")
 stats = ExtResource("2_4r5pv")
 sprite = NodePath("AnimatedSprite2D")
+hit_timer = NodePath("HurttboxArea/Timer")
+hurt_col = NodePath("HurttboxArea/CollisionShape2D")
 path2D = NodePath("Path2D")
 pathFollow = NodePath("Path2D/PathFollow2D")
 wave_enemy_position = NodePath("Path2D/PathFollow2D/Marker2D")
@@ -202,7 +204,6 @@ sprite_frames = SubResource("SpriteFrames_13qdw")
 animation = &"walk_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=414563548]
-position = Vector2(2.9802322e-08, 0.50000244)
 scale = Vector2(0.07039983, 0.051200133)
 shape = SubResource("RectangleShape2D_xrivr")
 
@@ -218,12 +219,17 @@ rotation = 0.04107278
 
 [node name="Marker2D" type="Marker2D" parent="Path2D/PathFollow2D" unique_id=2114836532]
 
-[node name="HitboxArea" type="Area2D" parent="." unique_id=307610318]
+[node name="HurttboxArea" type="Area2D" parent="." unique_id=307610318]
+collision_layer = 2
+collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxArea" unique_id=1689257528]
-position = Vector2(-0.5000007, 1.4999993)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurttboxArea" unique_id=1689257528]
 scale = Vector2(0.43999892, 0.32000065)
 shape = SubResource("RectangleShape2D_13qdw")
+
+[node name="Timer" type="Timer" parent="HurttboxArea" unique_id=742075292]
+wait_time = 0.5
+one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1439811914]
 libraries/ = SubResource("AnimationLibrary_fulsm")
@@ -237,6 +243,7 @@ radius = 2000.0
 horizontal_angle = 10.0
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1861426023]
+visible = false
 script = ExtResource("11_jej6c")
 time_scaler = ExtResource("2_60mlk")
 
@@ -293,6 +300,8 @@ wait_time = 100.0
 autostart = true
 ignore_time_scale = true
 
-[connection signal="body_entered" from="HitboxArea" to="." method="_on_hitbox_area_body_entered"]
+[connection signal="area_entered" from="HurttboxArea" to="." method="_on_hurttbox_area_area_entered"]
+[connection signal="body_entered" from="HurttboxArea" to="." method="_on_hitbox_area_body_entered"]
+[connection signal="timeout" from="HurttboxArea/Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="PukeTimer" to="." method="_on_puke_timer_timeout"]
 [connection signal="timeout" from="UI/MinigameTimer" to="UI" method="_on_timer_timeout"]

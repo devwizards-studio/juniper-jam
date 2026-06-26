@@ -11,6 +11,8 @@ var is_puking: bool = false
 var in_minigame : bool = false
 @export var stats : CombatStats
 @export var sprite : AnimatedSprite2D
+@export var hit_timer : Timer
+@export var hurt_col : CollisionShape2D
 
 #@export var max_hp : int
 #var curr_hp : int 
@@ -22,6 +24,7 @@ var friction : int =  5
 @export var path2D : Path2D
 @export var pathFollow : PathFollow2D
 @export var wave_enemy_position : Marker2D
+signal game_lost
 
 func _ready() -> void:
 	time_scaler.time_scale = 1.0
@@ -61,19 +64,13 @@ func movement(delta: float):
 	velocity = lerp(velocity, input * stats.max_speed, lerp_weight) * time_scaler.time_scale
 	move_and_slide()
 
-func _on_hitbox_area_body_entered(body: Node2D) -> void:
-	if body.is_in_group("enemies"):
-		var enemy_body := body as Enemy
-		print("Wiz got hit!")
-		take_damage(enemy_body.stats.atk_dmg)
-
 func take_damage(dmg_val : int):
 	stats.current_hp -= dmg_val
 	print("wiz got damaged with: ", dmg_val)
 	if stats.current_hp <= 0:
 		print("ya died!")
-		get_tree().quit()
-		
+		game_lost.emit()
+
 func _on_puke_bar_filled():
 	is_puking = true
 	shuriken_spawner.is_puking = true
@@ -93,3 +90,17 @@ func _on_game_over():
 	# nu exista scena asta
 	#get_tree().change_scene_to_file("res://scenes/UI/GameOver.tscn")
 """
+
+#the correct one for taking dmg
+func _on_hurttbox_area_area_entered(area: Area2D) -> void:
+	if area.is_in_group("enemy_attack"):
+		#ALTERNATIVELY, USE THE SCRIPT FOR THE HITBOX, GET ATK VAL!
+		take_damage(area.get_parent().stats.atk_dmg)
+		hurt_col.call_deferred("set", "disabled", true)
+		hit_timer.start()
+
+
+#the cooldown for being hit again
+func _on_timer_timeout() -> void:
+	print("COLLISION IS BACK")
+	hurt_col.call_deferred("set", "disabled", false)
