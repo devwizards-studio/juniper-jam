@@ -82,8 +82,12 @@ func take_damage(dmg_val : int):
 	
 	print("wiz got damaged with: ", dmg_val)
 	if stats.current_hp <= 0:
+		AudioManager.stop_music()
+		var stream = preload("res://Audio/GameOver.mp3")
+		AudioManager.play_sfx(stream)
 		print("ya died!")
 		game_lost.emit()
+		
 
 func _on_puke_bar_filled():
 	is_puking = true
@@ -95,15 +99,7 @@ func _on_puke_timer_timeout() -> void:
 	is_puking = false
 	shuriken_spawner.is_puking = false
 	minigame_timer.start()
-	
-"""
-func _on_game_over():
-	sprite.play("puke") 
-	await sprite.animation_finished
-	
-	# nu exista scena asta
-	#get_tree().change_scene_to_file("res://scenes/UI/GameOver.tscn")
-"""
+
 
 #the correct one for taking dmg
 func _on_hurttbox_area_area_entered(area: Area2D) -> void:
