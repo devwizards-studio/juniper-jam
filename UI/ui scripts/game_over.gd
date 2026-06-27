@@ -21,11 +21,9 @@ func _ready() -> void:
 	if user_data.username != "":
 		username = user_data.username
 	
-
 func _on_quit_pressed() -> void:
+	get_tree().paused = false
 	get_tree().change_scene_to_file(main_menu_path)
-
-
 
 func _on_to_leaderboard_pressed() -> void:
 	user_data.score = score_label.text.to_int()

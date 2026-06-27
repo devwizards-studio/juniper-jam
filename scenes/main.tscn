@@ -149,10 +149,11 @@ visible = false
 z_index = 1
 leaderboard = NodePath("../leaderboard")
 
-[node name="leaderboard" parent="CanvasLayer" unique_id=1525802796 instance=ExtResource("12_eb6dy")]
+[node name="leaderboard" parent="CanvasLayer" unique_id=1525802796 node_paths=PackedStringArray("game_over") instance=ExtResource("12_eb6dy")]
 process_mode = 2
 visible = false
 z_index = 2
+game_over = NodePath("../Control")
 
 [node name="Path2D" type="Path2D" parent="." unique_id=171373215]
 position = Vector2(2076.0667, 674.8391)

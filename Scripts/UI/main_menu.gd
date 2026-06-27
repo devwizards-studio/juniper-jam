@@ -24,6 +24,7 @@ func _on_options_visibility_changed() -> void:
 	quit.disabled = is_visible
 
 func _on_start_pressed() -> void:
+	print("start pressed")
 	reset_progress()
 	AudioManager.stop_music()
 	var game_stream = preload("res://Audio/CriticalTheme.wav")

@@ -5,6 +5,7 @@ var api_key := "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJ
 
 var http_request : HTTPRequest
 @export var vbox : VBoxContainer
+@export var game_over: Control
 @onready var leaderboard_visuals : LabelSettings = preload("res://Resources/leaderboard_settings.tres")
 
 func _ready() -> void:
@@ -46,5 +47,6 @@ func _on_http_request_request_completed(result: int, response_code: int, headers
 
 
 func _on_quit_pressed() -> void:
-	get_tree().paused = false
-	get_tree().change_scene_to_file( "res://UI/GameOver.tscn")
+	#get_tree().paused = false
+	game_over.visible = true
+	visible = false
