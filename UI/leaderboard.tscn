@@ -4,8 +4,8 @@
 [ext_resource type="FontFile" uid="uid://c1xqdqs6pucvw" path="res://Sprites/font/Asimovian-Regular.ttf" id="2_ksej1"]
 [ext_resource type="LabelSettings" uid="uid://de7jbasgecuk3" path="res://Resources/leaderboard_settings.tres" id="3_nnvod"]
 [ext_resource type="Texture2D" uid="uid://bdunxa020b2l1" path="res://Sprites/patinoar_sad.png" id="4_mhe0q"]
-[ext_resource type="Texture2D" uid="uid://84b3t3rcein8" path="res://Sprites/UI/Main Menu/quit.png" id="5_bf62i"]
 [ext_resource type="Script" uid="uid://dow6oemof7unt" path="res://Scripts/UI/scene_switcher.gd" id="5_xs4xk"]
+[ext_resource type="Texture2D" uid="uid://6e0vad6stxdy" path="res://Sprites/UI/Main Menu/close - Copy.png" id="6_xs4xk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_cwhak"]
 font = ExtResource("2_ksej1")
@@ -59,6 +59,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="VBoxContainer" unique_id=839055892]
+visible = false
 layout_mode = 2
 text = "test: 
 "
@@ -69,16 +70,18 @@ self_modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_left = 1539.0
 offset_top = 813.0
-offset_right = 1695.0
-offset_bottom = 903.0
+offset_right = 1732.0
+offset_bottom = 882.0
 text = "Quit
 "
 script = ExtResource("5_xs4xk")
 
 [node name="TextureRect" type="TextureRect" parent="quit" unique_id=1518518283]
 layout_mode = 0
-offset_right = 156.0
-offset_bottom = 90.0
-texture = ExtResource("5_bf62i")
+offset_right = 195.0
+offset_bottom = 66.0
+texture = ExtResource("6_xs4xk")
+expand_mode = 1
+stretch_mode = 5
 
 [connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
