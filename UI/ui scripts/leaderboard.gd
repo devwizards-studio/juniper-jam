@@ -45,4 +45,4 @@ func _on_http_request_request_completed(result: int, response_code: int, headers
 
 func _on_quit_pressed() -> void:
 	get_tree().paused = false
-	get_tree().change_scene_to_file( "res://scenes/UI/main_menu.tscn")
+	get_tree().change_scene_to_file( "res://UI/GameOver.tscn")

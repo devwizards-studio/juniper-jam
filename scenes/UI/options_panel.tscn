@@ -86,8 +86,8 @@ texture = ExtResource("2_ibhce")
 expand_mode = 1
 
 [node name="NewScolOptions" type="Sprite2D" parent="PanelContainer/MarginContainer/VBoxContainer/OptionsLabel" unique_id=279091383]
-position = Vector2(703.99994, 227.00002)
-scale = Vector2(0.44550514, 0.9296028)
+position = Vector2(708.49994, 227.00002)
+scale = Vector2(0.7836118, 0.9296028)
 texture = ExtResource("2_ysf2e")
 
 [node name="MasterLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=735976144]
@@ -165,13 +165,13 @@ value = 0.5
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.326
-anchor_top = 0.504
-anchor_right = 0.395
-anchor_bottom = 0.58100003
+anchor_top = 0.50200003
+anchor_right = 0.326
+anchor_bottom = 0.50200003
 offset_left = -0.68200684
-offset_top = -1.2799988
-offset_right = 0.23498535
-offset_bottom = -1.1700134
+offset_top = -0.14001465
+offset_right = 50.317993
+offset_bottom = 52.859985
 theme_override_colors/font_color = Color(0.39215687, 0.34901962, 0.2784314, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 38
@@ -205,14 +205,14 @@ value = 0.5
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.615
-anchor_top = 0.689
-anchor_right = 0.65000004
-anchor_bottom = 0.73700005
-offset_left = 8.695007
-offset_top = 55.26999
-offset_right = 10.449951
-offset_bottom = 58.909973
+anchor_left = 0.726
+anchor_top = 0.74
+anchor_right = 0.726
+anchor_bottom = 0.74
+offset_left = 0.5180054
+offset_top = 0.19998169
+offset_right = 88.518005
+offset_bottom = 47.19998
 size_flags_horizontal = 12
 text = "
 "

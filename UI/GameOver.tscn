@@ -2,20 +2,49 @@
 
 [ext_resource type="Script" uid="uid://cl2mmipffyiov" path="res://UI/ui scripts/game_over.gd" id="1_kjexa"]
 [ext_resource type="Texture2D" uid="uid://bdunxa020b2l1" path="res://Sprites/patinoar_sad.png" id="2_3pwoa"]
+[ext_resource type="Resource" uid="uid://btae1kgilte7k" path="res://Resources/user_data.tres" id="2_i0dbh"]
 [ext_resource type="Texture2D" uid="uid://dk7g78fvg81s7" path="res://Sprites/UI/GameOver/gameover.png" id="2_vjbsa"]
 [ext_resource type="FontFile" uid="uid://c1xqdqs6pucvw" path="res://Sprites/font/Asimovian-Regular.ttf" id="2_vohf5"]
+[ext_resource type="Texture2D" uid="uid://y1ssi71qd21w" path="res://Sprites/UI/Main Menu/background.png" id="3_dy830"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ragau"]
+font = ExtResource("2_vohf5")
+font_size = 48
+outline_size = 7
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_n6yxf"]
+font = ExtResource("2_vohf5")
+font_size = 48
+outline_size = 7
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_kv7ni"]
+font = ExtResource("2_vohf5")
+font_size = 48
+outline_size = 7
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_kivsr"]
 font = ExtResource("2_vohf5")
-font_size = 28
+font_size = 56
+font_color = Color(0.11764706, 0.43529412, 0.8980392, 1)
+outline_size = 7
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_gdkj6"]
 font = ExtResource("2_vohf5")
-font_size = 28
+font_size = 56
+font_color = Color(0.11764706, 0.43529412, 0.8980392, 1)
+outline_size = 7
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_faeep"]
 font = ExtResource("2_vohf5")
-font_size = 28
+font_size = 56
+font_color = Color(0.11764706, 0.43529412, 0.8980392, 1)
+outline_size = 7
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Control" type="Control" unique_id=1521952163 node_paths=PackedStringArray("http_request", "submit", "score_label")]
 layout_mode = 3
@@ -29,10 +58,11 @@ offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_kjexa")
+user_data = ExtResource("2_i0dbh")
 main_menu_path = "res://scenes/UI/main_menu.tscn"
 leaderboard_path = "res://UI/leaderboard.tscn"
 http_request = NodePath("HTTPRequest")
-submit = NodePath("HBoxContainer/submit")
+submit = NodePath("submit")
 score_label = NodePath("score_label")
 
 [node name="TextureRect2" type="TextureRect" parent="." unique_id=1315322915]
@@ -43,33 +73,90 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 texture = ExtResource("2_3pwoa")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=775167578]
+[node name="to leaderboard" type="TextureButton" parent="." unique_id=487780380]
 layout_mode = 0
-offset_left = 714.0
-offset_top = 693.0
-offset_right = 1056.0
-offset_bottom = 733.0
+offset_left = 426.0
+offset_top = 670.0
+offset_right = 726.0
+offset_bottom = 834.0
+texture_normal = ExtResource("3_dy830")
+ignore_texture_size = true
+stretch_mode = 5
 
-[node name="to leaderboard" type="Button" parent="HBoxContainer" unique_id=1639345933]
-layout_mode = 2
-text = "See Leaderboard
-"
+[node name="Label" type="Label" parent="to leaderboard" unique_id=290187492]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -139.5
+offset_top = -31.5
+offset_right = 139.5
+offset_bottom = 31.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Leaderboard"
+label_settings = SubResource("LabelSettings_ragau")
 
-[node name="submit" type="Button" parent="HBoxContainer" unique_id=774336865]
-layout_mode = 2
-text = "Submit your score!"
+[node name="submit" type="TextureButton" parent="." unique_id=135037556]
+layout_mode = 0
+offset_left = 768.0
+offset_top = 670.0
+offset_right = 1070.0
+offset_bottom = 834.0
+texture_normal = ExtResource("3_dy830")
+ignore_texture_size = true
+stretch_mode = 5
 
-[node name="quit" type="Button" parent="HBoxContainer" unique_id=1197129255]
-layout_mode = 2
-text = "Quit
-"
+[node name="Label" type="Label" parent="submit" unique_id=826167317]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -74.5
+offset_top = -31.5
+offset_right = 74.5
+offset_bottom = 31.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Submit"
+label_settings = SubResource("LabelSettings_n6yxf")
+
+[node name="quit" type="TextureButton" parent="." unique_id=33333556]
+layout_mode = 0
+offset_left = 1118.0
+offset_top = 670.0
+offset_right = 1418.0
+offset_bottom = 834.0
+texture_normal = ExtResource("3_dy830")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="quit" unique_id=519393288]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.5
+offset_top = -31.5
+offset_right = 45.5
+offset_bottom = 31.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit"
+label_settings = SubResource("LabelSettings_kv7ni")
 
 [node name="score_label" type="Label" parent="." unique_id=1773736262]
 layout_mode = 0
-offset_left = 896.0
-offset_top = 539.0
-offset_right = 997.0
-offset_bottom = 567.0
+offset_left = 930.0
+offset_top = 472.0
+offset_right = 1216.0
+offset_bottom = 545.0
 label_settings = SubResource("LabelSettings_kivsr")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1560325322]
@@ -79,10 +166,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -182.0
-offset_top = 4.0
-offset_right = -87.0
-offset_bottom = 54.0
+offset_left = -351.0
+offset_top = -70.0
+offset_right = -43.0
+offset_bottom = 80.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -104,9 +191,11 @@ label_settings = SubResource("LabelSettings_faeep")
 [node name="LineEdit" type="LineEdit" parent="." unique_id=1255478887]
 layout_mode = 0
 offset_left = 929.0
-offset_top = 575.0
-offset_right = 997.5
-offset_bottom = 606.0
+offset_top = 561.0
+offset_right = 1190.0
+offset_bottom = 616.0
+theme_override_fonts/font = ExtResource("2_vohf5")
+theme_override_font_sizes/font_size = 36
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=726152683]
 layout_mode = 1
@@ -119,8 +208,8 @@ offset_bottom = 370.0
 grow_horizontal = 2
 texture = ExtResource("2_vjbsa")
 
-[connection signal="pressed" from="HBoxContainer/to leaderboard" to="." method="_on_to_leaderboard_pressed"]
-[connection signal="pressed" from="HBoxContainer/submit" to="." method="_on_submit_pressed"]
-[connection signal="pressed" from="HBoxContainer/quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="to leaderboard" to="." method="_on_to_leaderboard_pressed"]
+[connection signal="pressed" from="submit" to="." method="_on_submit_pressed"]
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]
 [connection signal="text_changed" from="LineEdit" to="." method="_on_line_edit_text_changed"]
