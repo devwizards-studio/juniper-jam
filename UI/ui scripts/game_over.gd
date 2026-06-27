@@ -22,6 +22,7 @@ func _ready() -> void:
 		username = user_data.username
 	
 func _on_quit_pressed() -> void:
+	AudioManager.stop_gameover_music()
 	get_tree().paused = false
 	get_tree().change_scene_to_file(main_menu_path)
 
