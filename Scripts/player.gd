@@ -10,6 +10,7 @@ class_name Player
 @onready var puke_bar: PukeBar = $UI/PukeBar
 var is_puking: bool = false
 
+@export var canvas_layer : CanvasLayer
 @export var time_scaler: TimeScaler
 var in_minigame : bool = false
 @export var stats : CombatStats
@@ -31,6 +32,7 @@ var friction : int =  5
 signal game_lost()
 
 func _ready() -> void:
+	canvas_layer.show()
 	start_time = Time.get_unix_time_from_system()
 	
 	time_scaler.time_scale = 1.0
