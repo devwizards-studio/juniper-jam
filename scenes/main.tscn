@@ -69,7 +69,7 @@ _data = {
 }
 point_count = 12
 
-[node name="main" type="Node2D" unique_id=48790755 node_paths=PackedStringArray("HockJock_model", "PolarBear_model", "Sharknado_model", "enemy_spawner", "game_over_screen")]
+[node name="main" type="Node2D" unique_id=48790755 node_paths=PackedStringArray("HockJock_model", "PolarBear_model", "Sharknado_model", "enemy_spawner", "game_over_screen", "player")]
 script = ExtResource("1_choun")
 HockJock_model = NodePath("EnemySpawner/HockJock")
 PolarBear_model = NodePath("EnemySpawner/PolarBear")
@@ -77,6 +77,7 @@ Sharknado_model = NodePath("EnemySpawner/Sharknado")
 enemy_spawner = NodePath("EnemySpawner")
 game_over_path = "res://UI/GameOver.tscn"
 game_over_screen = NodePath("CanvasLayer/Control")
+player = NodePath("Player")
 
 [node name="map" type="Sprite2D" parent="." unique_id=1309012133]
 position = Vector2(1174, 738.00006)

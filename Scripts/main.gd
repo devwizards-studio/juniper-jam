@@ -8,6 +8,7 @@ var score : int
 @export var enemy_spawner : Node2D
 @export var game_over_path : String
 @export var game_over_screen : Control
+@export var player: Player
 
 func _ready() -> void:
 	print("come on")
@@ -32,6 +33,7 @@ func _on_player_game_lost() -> void:
 	var final_score = compute_final_score()
 	print("final score is: ", final_score)
 	get_tree().paused = true
+	player.canvas_layer.hide()
 	game_over_screen.visible = true
 	game_over_screen.score_label.text = str(final_score)
 

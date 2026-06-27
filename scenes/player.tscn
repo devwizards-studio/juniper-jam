@@ -211,8 +211,9 @@ _data = {
 &"invincibility": SubResource("Animation_giy8y")
 }
 
-[node name="Player" type="CharacterBody2D" unique_id=1212704905 node_paths=PackedStringArray("sprite", "hit_timer", "hurt_col") groups=["player"]]
+[node name="Player" type="CharacterBody2D" unique_id=1212704905 node_paths=PackedStringArray("canvas_layer", "sprite", "hit_timer", "hurt_col") groups=["player"]]
 script = ExtResource("1_g2els")
+canvas_layer = NodePath("UI")
 time_scaler = ExtResource("2_60mlk")
 stats = ExtResource("2_4r5pv")
 sprite = NodePath("AnimatedSprite2D")

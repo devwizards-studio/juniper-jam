@@ -1,6 +1,6 @@
 extends Control
 
-
+@export var main_menu_path : String
 @export var leaderboard_path : String
 @export var http_request : HTTPRequest
 @export var submit : Button
@@ -15,7 +15,7 @@ var api_key := "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJ
 
 
 func _on_quit_pressed() -> void:
-	get_tree().quit()
+	get_tree().change_scene_to_file(main_menu_path)
 
 
 
