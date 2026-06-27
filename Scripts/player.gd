@@ -83,8 +83,10 @@ func take_damage(dmg_val : int):
 	print("wiz got damaged with: ", dmg_val)
 	if stats.current_hp <= 0:
 		AudioManager.stop_music()
-		var stream = preload("res://Audio/GameOver.mp3")
-		AudioManager.play_sfx(stream)
+		var sfx_stream = preload("res://Audio/GameOver.mp3")
+		var music_stream = preload("res://Audio/DragAndDreadTheme.wav")
+		AudioManager.play_sfx(sfx_stream)
+		AudioManager.play_gameover_music(music_stream)
 		print("ya died!")
 		game_lost.emit()
 		

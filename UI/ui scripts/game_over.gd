@@ -51,7 +51,7 @@ func submit_score(player_name: String, score: int):
 
 
 func _on_http_request_request_completed(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray) -> void:
-	#leaderboard.fetch_leaderboard()
+	leaderboard.fetch_leaderboard()
 	var json = JSON.new()
 	json.parse(body.get_string_from_utf8())
 	var response = json.get_data()

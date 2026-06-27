@@ -9,6 +9,7 @@ var music_volume : float = 0.25
 var sfx_volume : float = 0.25
 var music_player: AudioStreamPlayer
 var music_player_menu: AudioStreamPlayer
+var music_player_gameover: AudioStreamPlayer
 
 var coming_from_credits: bool = false
 
@@ -34,7 +35,12 @@ func _ready() -> void:
 	_master_bus = AudioServer.get_bus_index("Master")
 	_music_bus  = AudioServer.get_bus_index("Music")
 	_sfx_bus    = AudioServer.get_bus_index("Sfx")
-
+	
+	music_player_gameover = AudioStreamPlayer.new()
+	music_player_gameover.bus = "Music"
+	music_player_gameover.process_mode = Node.PROCESS_MODE_ALWAYS
+	add_child(music_player_gameover)
+	
 func set_master_volume(value: float) -> void:
 	master_volume = value
 	AudioServer.set_bus_volume_db(_master_bus, linear_to_db(value))
@@ -70,3 +76,10 @@ func play_sfx(stream: AudioStream) -> void:
 	
 func stop_sfx() -> void:
 	dj.stop()
+	
+func play_gameover_music(stream: AudioStream) -> void:
+	music_player_gameover.stream = stream
+	music_player_gameover.play()
+
+func stop_gameover_music() -> void:
+	music_player_gameover.stop()
