@@ -10,7 +10,7 @@
 [sub_resource type="LabelSettings" id="LabelSettings_cwhak"]
 font = ExtResource("2_ksej1")
 font_size = 48
-font_color = Color(0.8235294, 0.078431375, 0.43529412, 1)
+font_color = Color(0.54901963, 0.06666667, 0.019607844, 1)
 outline_size = 7
 outline_color = Color(0, 0, 0, 1)
 shadow_size = 13
