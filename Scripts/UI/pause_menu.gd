@@ -11,6 +11,10 @@ func _ready() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
+		print("Scena curenta: ", get_tree().current_scene.name)
+		var current_scene = get_tree().current_scene
+		if current_scene.name == "GameOver" or current_scene.name == "main_menu":
+			return
 		if options_panel and options_panel.visible:
 			options_panel.visible = false
 			return

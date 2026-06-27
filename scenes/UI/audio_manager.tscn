@@ -4,6 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://cbd8kj0gbomjt" path="res://Audio/CriticalTheme.wav" id="2_tjjdb"]
 [ext_resource type="AudioStream" uid="uid://b0m534p6sgx4g" path="res://Audio/HaroldParanormalInstigatorTheme.wav" id="3_tjjdb"]
 [ext_resource type="AudioStream" uid="uid://csgx3n7aukv3x" path="res://Audio/breakdance.wav" id="4_c8wwf"]
+[ext_resource type="AudioStream" uid="uid://bsln5l4vey3f0" path="res://Audio/DragAndDreadTheme.wav" id="5_ma1xs"]
 
 [node name="audio_manager" type="Node" unique_id=379687744]
 script = ExtResource("1_2kfui")
@@ -21,3 +22,7 @@ autoplay = true
 [node name="dj" type="AudioStreamPlayer" parent="." unique_id=725620601]
 stream = ExtResource("4_c8wwf")
 bus = &"Sfx"
+
+[node name="MusicPlayer3" type="AudioStreamPlayer" parent="." unique_id=1803811337]
+stream = ExtResource("5_ma1xs")
+volume_db = -9.07

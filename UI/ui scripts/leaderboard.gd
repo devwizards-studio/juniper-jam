@@ -26,6 +26,8 @@ func fetch_leaderboard():
 
 
 func _on_http_request_request_completed(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray) -> void:
+	print("response code: ", response_code)
+	print("body: ", body.get_string_from_utf8())
 	print("request completed fired")
 	print(result)
 	print(response_code)
